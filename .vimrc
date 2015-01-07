@@ -28,6 +28,7 @@ Bundle 'vim-scripts/JSON.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'dahu/SearchParty'
 Bundle 'henrik/vim-indexed-search'
+Bundle 'tpope/vim-eunuch'
 " Color theme
 Bundle 'ciaranm/inkpot'
 
