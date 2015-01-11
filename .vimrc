@@ -37,14 +37,17 @@ Bundle 'ciaranm/inkpot'
 " Bundle 'tpope/vim-markdown'
 " Bundle 'digitaltoad/vim-jade'
 " Bundle 'mustache/vim-mustache-handlebars'
-" Bundle 'thinca/vim-visualstar'
 
 let g:user_emmet_settings = { 'xml': { 'extends': 'html' }, 'dust': { 'extends': 'html' } }
 
 set ignorecase smartcase
 set hidden hlsearch
-set wildignore+=node_modules/*,public/vendor/*,vendor/*
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|node_modules$\|coverage$\|dist$',
+  \ 'file': '\.DS_Store$'
+  \ }
 
 set fileformat=unix
 set title mouse=a ttymouse=xterm2
