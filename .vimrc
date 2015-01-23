@@ -22,13 +22,15 @@ Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
+Bundle 'pangloss/vim-javascript'
+Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jimmyhchan/dustjs.vim'
 Bundle 'othree/xml.vim'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'groenewege/vim-less'
+Bundle 'tpope/vim-eunuch'
 Bundle 'dahu/SearchParty'
 Bundle 'henrik/vim-indexed-search'
-Bundle 'tpope/vim-eunuch'
 " Color theme
 Bundle 'ciaranm/inkpot'
 
@@ -43,7 +45,7 @@ let g:user_emmet_settings = { 'xml': { 'extends': 'html' }, 'dust': { 'extends':
 set ignorecase smartcase
 set hidden hlsearch
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swn,*.swp,*.zip
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|node_modules$\|coverage$\|dist$',
   \ 'file': '\.DS_Store$'
