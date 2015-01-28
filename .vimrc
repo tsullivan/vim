@@ -74,6 +74,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
+" git commit messagse
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " sytastic
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_less_options = "--no-color --include-path=public/css"
