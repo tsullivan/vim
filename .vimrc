@@ -47,7 +47,7 @@ set hidden hlsearch
 
 set wildignore+=*/tmp/*,*.so,*.swn,*.swp,*.zip
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|node_modules$\|coverage$\|dist$',
+  \ 'dir':  '\.git$\|node_modules$\|coverage$\|dist$\|bower_components$',
   \ 'file': '\.DS_Store$'
   \ }
 
@@ -80,6 +80,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 " sytastic
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_less_options = "--no-color --include-path=public/css"
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 " control-p
 let g:ctrlp_map = '<c-p>'
