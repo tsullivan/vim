@@ -56,7 +56,7 @@ set title mouse=a ttymouse=xterm2
 set shiftwidth=4 tabstop=4 noexpandtab
 set visualbell noerrorbells
 set nosmartindent nocindent
-set nowrap number relativenumber
+set nowrap number
 
 set background=light
 colorscheme inkpot
