@@ -17,11 +17,12 @@ Bundle 'vim-scripts/unicode.vim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Buffer-grep'
-Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
+Bundle 'Buffer-grep'
+Bundle 'mileszs/ack.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jimmyhchan/dustjs.vim'
@@ -53,7 +54,7 @@ let g:ctrlp_custom_ignore = {
 
 set fileformat=unix
 set title mouse=a ttymouse=xterm2
-set shiftwidth=4 tabstop=4 noexpandtab
+set shiftwidth=2 tabstop=2 noexpandtab
 set visualbell noerrorbells
 set nosmartindent nocindent
 set nowrap number
@@ -71,14 +72,11 @@ set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" Remove trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " sytastic
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let g:syntastic_less_options = "--no-color --include-path=public/css"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
@@ -89,6 +87,9 @@ let g:ctrlp_cmd = 'CtrlP'
 " split window switching
 nnoremap <tab> <c-w>
 nnoremap <tab><tab> <c-w><c-w>
+
+" NERDTree
+silent! nnoremap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
 
 " ignore middle mouse button
 :map <MiddleMouse> <Nop>
