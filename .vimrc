@@ -59,15 +59,16 @@ set visualbell noerrorbells
 set nosmartindent nocindent
 set nowrap number
 
+set colorcolumn=80
 set background=light
 colorscheme inkpot
+
+set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %{SyntasticStatuslineFlag()}\ [POS=%04l,%04v][%p%%][LEN=%L]
 
 " Filetype handling
 filetype plugin indent on
 au BufRead,BufNewFile *.json set filetype=json
 au BufNewFile,BufRead *.ejs set filetype=html
-
-set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %{SyntasticStatuslineFlag()}\ [POS=%04l,%04v][%p%%][LEN=%L]
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
