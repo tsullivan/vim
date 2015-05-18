@@ -23,7 +23,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'Buffer-grep'
 Bundle 'mileszs/ack.vim'
-Bundle 'pangloss/vim-javascript'
+Bundle 'othree/yajs.vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jimmyhchan/dustjs.vim'
 Bundle 'othree/xml.vim'
@@ -58,6 +58,7 @@ set shiftwidth=2 tabstop=2 noexpandtab
 set visualbell noerrorbells
 set nosmartindent nocindent
 set nowrap number
+set nowritebackup
 
 set colorcolumn=80
 set background=light
@@ -67,8 +68,9 @@ set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\
 
 " Filetype handling
 filetype plugin indent on
-au BufRead,BufNewFile *.json set filetype=json
+au BufNewFile,BufRead *.json set filetype=json
 au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.es6 set filetype=javascript
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -77,9 +79,17 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " sytastic
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_less_options = "--no-color --include-path=public/css"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 
 " control-p
 let g:ctrlp_map = '<c-p>'
