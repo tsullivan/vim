@@ -80,6 +80,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " sytastic
 let g:syntastic_javascript_checkers = ['eslint']
+au BufNewFile,BufRead *.es6 let b:syntastic_javascript_eslint_args = "--config .eslintes6rc" " separate lint config for es6 files
 let g:syntastic_less_options = "--no-color --include-path=public/css"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 let g:syntastic_always_populate_loc_list = 0
