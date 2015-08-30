@@ -53,7 +53,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 set fileformat=unix
-set title mouse=a ttymouse=sgr
+set title mouse=a ttymouse=xterm2
 set shiftwidth=2 tabstop=2 noexpandtab
 set visualbell noerrorbells
 set nosmartindent nocindent
