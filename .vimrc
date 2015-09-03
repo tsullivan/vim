@@ -1,6 +1,9 @@
 version 6.0
 set nocompatible
 
+" fix mapping conflict
+nnoremap <leader>c <Plug>SearchPartyHighlightClear
+
 " Vundle
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 set rtp+=~/.vim/bundle/vundle/
