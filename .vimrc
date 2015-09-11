@@ -6,6 +6,7 @@ nnoremap <leader>c <Plug>SearchPartyHighlightClear
 
 " Vundle
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vundle/vundle.plugin.zsh#L1
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -25,7 +26,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'Buffer-grep'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'othree/yajs.vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jimmyhchan/dustjs.vim'
@@ -49,13 +50,6 @@ let g:user_emmet_settings = { 'xml': { 'extends': 'html' }, 'dust': { 'extends':
 
 set ignorecase smartcase
 set hidden hlsearch
-
-set wildignore+=*/tmp/*,*.so,*.swn,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|node_modules$\|coverage$\|dist$\|bower_components$',
-  \ 'file': '\.DS_Store$'
-  \ }
-
 set fileformat=unix
 set title mouse=a ttymouse=xterm2
 set shiftwidth=2 tabstop=2 noexpandtab
@@ -84,8 +78,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " sytastic
 let g:syntastic_javascript_checkers = ['eslint']
-au BufNewFile,BufRead *.es6 let b:syntastic_javascript_eslint_args = "--config .eslintes6rc" " separate lint config for es6 files
-let g:syntastic_less_options = "--no-color --include-path=public/css"
+let g:syntastic_less_options = "--no-color"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
@@ -95,10 +88,13 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-
 " control-p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" '
+endif
 
 " split window switching
 nnoremap <tab> <c-w>
