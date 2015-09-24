@@ -37,6 +37,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'tpope/vim-eunuch'
 Bundle 'dahu/SearchParty'
 Bundle 'henrik/vim-indexed-search'
+Bundle 'nathanaelkane/vim-indent-guides'
 " Color theme
 Bundle 'ciaranm/inkpot'
 
@@ -46,19 +47,16 @@ Bundle 'ciaranm/inkpot'
 " Bundle 'digitaltoad/vim-jade'
 " Bundle 'mustache/vim-mustache-handlebars'
 
-let g:user_emmet_settings = { 'xml': { 'extends': 'html' }, 'dust': { 'extends': 'html' } }
-
 set ignorecase smartcase
 set hidden hlsearch
 set fileformat=unix
 set title mouse=a ttymouse=xterm2
-set shiftwidth=2 tabstop=2 noexpandtab
+set sw=2 ts=2 sts=2 expandtab
 set visualbell noerrorbells
-set nosmartindent nocindent
+set smartindent
 set nowrap number
-set nowritebackup
 
-set colorcolumn=80
+set colorcolumn=140
 set background=light
 colorscheme inkpot
 
@@ -95,6 +93,12 @@ if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" '
 endif
+
+" emmet
+let g:user_emmet_settings = { 'xml': { 'extends': 'html' }, 'dust': { 'extends': 'html' } }
+
+" indent guides
+let g:indent_guides_enable_on_vim_startup=0
 
 " split window switching
 nnoremap <tab> <c-w>
