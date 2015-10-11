@@ -36,6 +36,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'tpope/vim-eunuch'
 Bundle 'dahu/SearchParty'
+Bundle 'diepm/vim-rest-console'
 Bundle 'henrik/vim-indexed-search'
 Bundle 'nathanaelkane/vim-indent-guides'
 " Color theme
