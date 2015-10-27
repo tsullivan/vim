@@ -57,8 +57,10 @@ set visualbell noerrorbells
 set smartindent
 set nowrap number
 
+set cursorline
 set colorcolumn=140
 set background=light
+set lazyredraw
 colorscheme inkpot
 
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %{SyntasticStatuslineFlag()}\ [POS=%04l,%04v][%p%%][LEN=%L]
