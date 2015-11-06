@@ -19,17 +19,13 @@ Bundle 'tpope/vim-sensible'
 Bundle 'gregsexton/MatchTag'
 Bundle 'vim-scripts/unicode.vim'
 Bundle 'editorconfig/editorconfig-vim'
-Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
-Bundle 'Buffer-grep'
 Bundle 'rking/ag.vim'
 Bundle 'othree/yajs.vim'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'jimmyhchan/dustjs.vim'
 Bundle 'othree/xml.vim'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'groenewege/vim-less'
@@ -38,7 +34,6 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'dahu/SearchParty'
 Bundle 'diepm/vim-rest-console'
 Bundle 'henrik/vim-indexed-search'
-Bundle 'nathanaelkane/vim-indent-guides'
 " Color theme
 Bundle 'ciaranm/inkpot'
 
@@ -60,7 +55,6 @@ set nowrap number
 set cursorline
 set colorcolumn=140
 set background=light
-set lazyredraw
 colorscheme inkpot
 
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %{SyntasticStatuslineFlag()}\ [POS=%04l,%04v][%p%%][LEN=%L]
@@ -99,9 +93,6 @@ endif
 
 " emmet
 let g:user_emmet_settings = { 'xml': { 'extends': 'html' }, 'dust': { 'extends': 'html' } }
-
-" indent guides
-let g:indent_guides_enable_on_vim_startup=0
 
 " split window switching
 nnoremap <tab> <c-w>
