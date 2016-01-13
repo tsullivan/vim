@@ -25,11 +25,12 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'rking/ag.vim'
-Bundle 'othree/yajs.vim'
+Bundle 'pangloss/vim-javascript'
 Bundle 'othree/xml.vim'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'vim-airline/vim-airline'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'dahu/SearchParty'
@@ -37,6 +38,7 @@ Bundle 'diepm/vim-rest-console'
 Bundle 'henrik/vim-indexed-search'
 " Color theme
 Bundle 'ciaranm/inkpot'
+Bundle 'NLKNguyen/papercolor-theme'
 
 " Bundle 'Tabmerge'
 " Bundle 'tpope/vim-haml'
@@ -55,10 +57,8 @@ set nowrap number
 
 set cursorline
 set colorcolumn=140
-set background=light
-colorscheme inkpot
-
-set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %{SyntasticStatuslineFlag()}\ [POS=%04l,%04v][%p%%][LEN=%L]
+set background=dark
+colorscheme PaperColor
 
 " Filetype handling
 filetype plugin indent on
@@ -80,20 +80,18 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 " control-p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = ''
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" '
 endif
 
-" emmet
-let g:user_emmet_settings = { 'xml': { 'extends': 'html' }, 'dust': { 'extends': 'html' } }
+" Airline
+let g:airline_theme='papercolor'
 
 " split window switching
 nnoremap <tab> <c-w>
