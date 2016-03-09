@@ -27,10 +27,11 @@ Bundle 'scrooloose/syntastic'
 Bundle 'rking/ag.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'othree/xml.vim'
-Bundle 'vim-scripts/JSON.vim'
+Bundle 'elzr/vim-json'
 Bundle 'groenewege/vim-less'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'dahu/SearchParty'
@@ -63,7 +64,6 @@ colorscheme PaperColor
 
 " Filetype handling
 filetype plugin indent on
-au BufNewFile,BufRead *.json set filetype=json
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.es6 set filetype=javascript
 
