@@ -54,6 +54,7 @@ set sw=2 ts=2 sts=2 expandtab
 set visualbell noerrorbells
 set smartindent
 set nowrap number
+set showcmd
 
 set cursorline
 set colorcolumn=140
