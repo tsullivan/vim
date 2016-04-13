@@ -73,6 +73,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+" json
+let g:vim_json_syntax_conceal = 0
+
 " sytastic
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_less_options = "--no-color"
