@@ -62,6 +62,8 @@ set colorcolumn=140
 set background=dark
 colorscheme PaperColor
 
+set splitbelow splitright
+
 " Filetype handling
 filetype plugin indent on
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -69,6 +71,12 @@ au BufNewFile,BufRead *.es6 set filetype=javascript
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" split fun
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -96,10 +104,6 @@ endif
 
 " Airline
 let g:airline_theme='papercolor'
-
-" split window switching
-nnoremap <tab> <c-w>
-nnoremap <tab><tab> <c-w><c-w>
 
 " NERDTree
 silent! nnoremap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
