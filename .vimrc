@@ -40,6 +40,8 @@ Bundle 'henrik/vim-indexed-search'
 " Color theme
 Bundle 'ciaranm/inkpot'
 Bundle 'NLKNguyen/papercolor-theme'
+" Go
+Plugin 'fatih/vim-go'
 
 " Bundle 'Tabmerge'
 " Bundle 'tpope/vim-haml'
