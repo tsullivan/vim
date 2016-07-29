@@ -4,6 +4,14 @@ set nocompatible
 " fix mapping conflict
 nnoremap <leader>c <Plug>SearchPartyHighlightClear
 
+" vim-plug
+call plug#begin('~/.vim/plugged')
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" Add plugins to &runtimepath
+call plug#end()
+
 " Vundle
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 " https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vundle/vundle.plugin.zsh#L1
@@ -21,7 +29,6 @@ Bundle 'vim-scripts/unicode.vim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
-Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'rking/ag.vim'
@@ -74,6 +81,10 @@ au BufNewFile,BufRead *.es6 set filetype=javascript
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
+" fzf
+nnoremap <C-P> :FZF<CR>
+
+
 " split fun
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -94,15 +105,6 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-" control-p
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = ''
-if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" '
-endif
 
 " Airline
 let g:airline_theme='papercolor'
