@@ -12,6 +12,7 @@ Plug 'junegunn/fzf.vim'
 " Add plugins to &runtimepath
 call plug#end()
 
+filetype off
 " Vundle
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 " https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vundle/vundle.plugin.zsh#L1
