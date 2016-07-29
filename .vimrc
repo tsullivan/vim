@@ -1,9 +1,6 @@
 version 6.0
 set nocompatible
 
-" fix mapping conflict
-nnoremap <leader>c <Plug>SearchPartyHighlightClear
-
 " vim-plug
 call plug#begin('~/.vim/plugged')
 " Plugin outside ~/.vim/plugged with post-update hook
@@ -32,13 +29,11 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
-Bundle 'rking/ag.vim'
+"Bundle 'othree/yajs.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
-Bundle 'othree/xml.vim'
 Bundle 'elzr/vim-json'
 Bundle 'groenewege/vim-less'
-Bundle 'digitaltoad/vim-jade'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-eunuch'
@@ -48,14 +43,6 @@ Bundle 'henrik/vim-indexed-search'
 " Color theme
 Bundle 'ciaranm/inkpot'
 Bundle 'NLKNguyen/papercolor-theme'
-" Go
-Plugin 'fatih/vim-go'
-
-" Bundle 'Tabmerge'
-" Bundle 'tpope/vim-haml'
-" Bundle 'tpope/vim-markdown'
-" Bundle 'digitaltoad/vim-jade'
-" Bundle 'mustache/vim-mustache-handlebars'
 
 set ignorecase smartcase
 set hidden hlsearch
@@ -98,7 +85,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 " json
 let g:vim_json_syntax_conceal = 0
 
-" sytastic
+" syntastic
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_less_options = "--no-color"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
