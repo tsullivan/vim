@@ -6,43 +6,35 @@ call plug#begin('~/.vim/plugged')
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Plug some original repos on github
+Plug 'tpope/vim-sensible'
+Plug 'gregsexton/MatchTag'
+Plug 'vim-scripts/unicode.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/syntastic'
+Plug 'mileszs/ack.vim'
+"Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'elzr/vim-json'
+Plug 'groenewege/vim-less'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-eunuch'
+Plug 'dahu/SearchParty'
+Plug 'diepm/vim-rest-console'
+Plug 'henrik/vim-indexed-search'
+" Color theme
+Plug 'ciaranm/inkpot'
+Plug 'NLKNguyen/papercolor-theme'
 " Add plugins to &runtimepath
 call plug#end()
 
 filetype off
-" Vundle
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vundle/vundle.plugin.zsh#L1
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-" Bundle some original repos on github
-Bundle 'tpope/vim-sensible'
-Bundle 'gregsexton/MatchTag'
-Bundle 'vim-scripts/unicode.vim'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'scrooloose/syntastic'
-"Bundle 'othree/yajs.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
-Bundle 'elzr/vim-json'
-Bundle 'groenewege/vim-less'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'tpope/vim-eunuch'
-Bundle 'dahu/SearchParty'
-Bundle 'diepm/vim-rest-console'
-Bundle 'henrik/vim-indexed-search'
-" Color theme
-Bundle 'ciaranm/inkpot'
-Bundle 'NLKNguyen/papercolor-theme'
 
 set ignorecase smartcase
 set hidden hlsearch
