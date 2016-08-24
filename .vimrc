@@ -61,18 +61,21 @@ au BufNewFile,BufRead *.es6 set filetype=javascript
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" fzf
-nnoremap <C-P> :FZF<CR>
-
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" fzf
+nnoremap <C-P> :FZF<CR>
 
 " json
 let g:vim_json_syntax_conceal = 0
 
+" ag
+let g:ackprg = 'ag --vimgrep'
+
 " syntastic
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_less_options = "--no-color"
+let g:syntastic_less_lessc_args = "--no-color"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
