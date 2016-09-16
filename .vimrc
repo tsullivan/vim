@@ -31,6 +31,7 @@ Plug 'henrik/vim-indexed-search'
 " Color theme
 Plug 'ciaranm/inkpot'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'chriskempson/vim-tomorrow-theme'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -98,6 +99,6 @@ if $TERM_PROGRAM =~ "iTerm"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set backupdir=~/.vim/backup/
+set directory=~/.vim/swap/
+set undodir=~/.vim/undo/
