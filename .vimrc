@@ -40,7 +40,7 @@ filetype off
 set ignorecase smartcase
 set hidden hlsearch
 set fileformat=unix
-set title mouse=a ttymouse=xterm2
+set title mouse=a
 set sw=2 ts=2 sts=2 expandtab
 set visualbell noerrorbells
 set smartindent
