@@ -8,7 +8,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Plug some original repos on github
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
+Plug 'dahu/SearchParty'
 Plug 'gregsexton/MatchTag'
 Plug 'vim-scripts/unicode.vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -25,7 +27,6 @@ Plug 'groenewege/vim-less'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-eunuch'
-Plug 'dahu/SearchParty'
 Plug 'diepm/vim-rest-console'
 Plug 'henrik/vim-indexed-search'
 " Color theme
@@ -89,6 +90,10 @@ let g:airline_theme='papercolor'
 
 " NERDTree
 silent! nnoremap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
+
+" tmux-navigator
+let g:tmux_navigator_save_on_switch = 2
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " ignore middle mouse button
 :map <MiddleMouse> <Nop>
