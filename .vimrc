@@ -95,6 +95,7 @@ let g:airline_theme='papercolor'
 
 " NERDTree
 silent! nnoremap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
+silent! nnoremap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
 " tmux-navigator
 let g:tmux_navigator_save_on_switch = 2
