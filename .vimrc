@@ -70,6 +70,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " fzf
+" let g:fzf_prefer_tmux = 1
 nnoremap <C-P> :FZF<CR>
 
 " json
