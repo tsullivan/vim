@@ -12,6 +12,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'dahu/SearchParty'
 Plug 'Yggdroot/vim-mark'
+Plug 'dominikduda/vim_current_word'
 Plug 'gregsexton/MatchTag'
 Plug 'chrisbra/unicode.vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -89,6 +90,9 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+hi CurrentWord ctermbg=53
+hi CurrentWordTwins ctermbg=237
 
 " Airline
 let g:airline_theme='papercolor'
