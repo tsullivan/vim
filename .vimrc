@@ -75,6 +75,8 @@ nnoremap <C-P> :FZF<CR>
 
 " json
 let g:vim_json_syntax_conceal = 0
+" js/jsx
+let g:jsx_ext_required = 0
 
 " ag
 let g:ackprg = 'ag --vimgrep'
