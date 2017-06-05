@@ -53,9 +53,10 @@ set smartindent
 set nowrap number
 set showcmd
 
-set cursorline
+set nocursorline
 set colorcolumn=140
 set background=dark
+" colorscheme slate
 colorscheme PaperColor
 
 set splitbelow splitright
@@ -92,8 +93,8 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-hi CurrentWord ctermbg=53
-hi CurrentWordTwins ctermbg=237
+hi CurrentWord term=bold cterm=bold
+hi CurrentWordTwins term=underline cterm=underline gui=underline
 
 " Airline
 let g:airline_theme='papercolor'
