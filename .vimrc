@@ -117,6 +117,13 @@ if $TERM_PROGRAM =~ "iTerm"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
+" VRC
+let g:vrc_trigger = '<Leader>j'
+let g:vrc_syntax_highlight_response = 1
+let g:vrc_curl_opts = { '-s': '' }
+let g:vrc_auto_format_response_enabled = 1
+let g:vrc_auto_format_response_patterns = { 'json': 'json_pp' }
+
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
