@@ -120,7 +120,12 @@ endif
 " VRC
 let g:vrc_trigger = '<Leader>j'
 let g:vrc_syntax_highlight_response = 1
-let g:vrc_curl_opts = { '-s': '' }
+let g:vrc_curl_opts = {
+  \'--include': '',
+  \'--location': '',
+  \'--show-error': '',
+  \'--silent': ''
+  \}
 let g:vrc_auto_format_response_enabled = 1
 let g:vrc_auto_format_response_patterns = { 'json': 'json_pp' }
 
