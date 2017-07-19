@@ -127,7 +127,7 @@ let g:vrc_curl_opts = {
   \'--silent': ''
   \}
 let g:vrc_auto_format_response_enabled = 1
-let g:vrc_auto_format_response_patterns = { 'json': 'json_pp' }
+let g:vrc_auto_format_response_patterns = { 'json': 'python -m json.tool' }
 
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
