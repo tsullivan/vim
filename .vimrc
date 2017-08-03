@@ -57,8 +57,7 @@ set showcmd
 set nocursorline
 set colorcolumn=140
 set background=dark
-" colorscheme slate
-colorscheme PaperColor
+colorscheme Tomorrow-Night
 
 set splitbelow splitright
 
@@ -93,6 +92,7 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let loaded_matchparen = 1
 
 hi CurrentWord term=bold cterm=bold
 hi CurrentWordTwins term=underline cterm=underline gui=underline
@@ -111,12 +111,6 @@ let g:tmux_navigator_disable_when_zoomed = 1
 " ignore middle mouse button
 :map <MiddleMouse> <Nop>
 :imap <MiddleMouse> <Nop>
-
-" cursor to thin line
-if $TERM_PROGRAM =~ "iTerm"
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
 
 " VRC
 let g:vrc_trigger = '<Leader>j'
