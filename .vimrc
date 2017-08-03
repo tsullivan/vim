@@ -33,6 +33,7 @@ Plug 'robbles/logstash.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 Plug 'henrik/vim-indexed-search'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 " Color theme
 Plug 'ciaranm/inkpot'
 Plug 'NLKNguyen/papercolor-theme'
