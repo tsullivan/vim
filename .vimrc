@@ -75,7 +75,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 " fzf
 " let g:fzf_prefer_tmux = 1
 nnoremap <C-P> :FZF<CR>
-nnoremap <C-B> :Buffers<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 " json
 let g:vim_json_syntax_conceal = 0
