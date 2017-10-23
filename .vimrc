@@ -115,6 +115,9 @@ let g:vrc_curl_opts = {
 let g:vrc_auto_format_response_enabled = 1
 let g:vrc_auto_format_response_patterns = { 'json': "jq --sort-keys '.'" }
 
+" search highlight
+highlight Search cterm=bold ctermfg=white ctermbg=gray
+
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
