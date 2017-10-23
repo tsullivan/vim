@@ -20,7 +20,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-unimpaired'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 "Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
@@ -84,16 +84,6 @@ let g:jsx_ext_required = 0
 
 " ag
 let g:ackprg = 'ag --vimgrep'
-
-" syntastic
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_less_lessc_args = "--no-color"
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let loaded_matchparen = 1
 
 hi CurrentWord term=bold cterm=bold
 hi CurrentWordTwins term=underline cterm=underline gui=underline
