@@ -55,7 +55,7 @@ set nowrap number
 set showcmd
 
 set nocursorline
-set colorcolumn=140
+set colorcolumn=100
 set background=dark
 colorscheme Tomorrow-Night
 
@@ -66,24 +66,24 @@ filetype plugin indent on
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.es6 set filetype=javascript
 
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI="\<Esc>]50;CursorShape=1\x7"
+let &t_EI="\<Esc>]50;CursorShape=0\x7"
 
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " fzf
-" let g:fzf_prefer_tmux = 1
+" let g:fzf_prefer_tmux=1
 nnoremap <C-P> :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " json
-let g:vim_json_syntax_conceal = 0
+let g:vim_json_syntax_conceal=0
 " js/jsx
-let g:jsx_ext_required = 0
+let g:jsx_ext_required=0
 
 " ag
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg='ag --vimgrep'
 
 hi CurrentWord term=bold cterm=bold
 hi CurrentWordTwins term=underline cterm=underline gui=underline
@@ -96,24 +96,24 @@ silent! nnoremap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
 silent! nnoremap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
 " tmux-navigator
-let g:tmux_navigator_save_on_switch = 2
-let g:tmux_navigator_disable_when_zoomed = 1
+let g:tmux_navigator_save_on_switch=2
+let g:tmux_navigator_disable_when_zoomed=1
 
 " ignore middle mouse button
 :map <MiddleMouse> <Nop>
 :imap <MiddleMouse> <Nop>
 
 " VRC
-let g:vrc_trigger = '<Leader>j'
-let g:vrc_syntax_highlight_response = 1
-let g:vrc_curl_opts = {
+let g:vrc_trigger='<Leader>j'
+let g:vrc_syntax_highlight_response=1
+let g:vrc_curl_opts={
   \'--include': '',
   \'--location': '',
   \'--show-error': '',
   \'--silent': ''
   \}
-let g:vrc_auto_format_response_enabled = 1
-let g:vrc_auto_format_response_patterns = { 'json': "jq --sort-keys '.'" }
+let g:vrc_auto_format_response_enabled=1
+let g:vrc_auto_format_response_patterns={ 'json': "jq --sort-keys '.'" }
 
 " search highlight
 highlight Search cterm=bold ctermfg=white ctermbg=gray
