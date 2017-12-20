@@ -103,6 +103,11 @@ let g:tmux_navigator_disable_when_zoomed=1
 :map <MiddleMouse> <Nop>
 :imap <MiddleMouse> <Nop>
 
+" ALE
+let g:ale_fixers = {
+  \'javascript': ['eslint'],
+  \}
+
 " VRC
 let g:vrc_trigger='<Leader>j'
 let g:vrc_syntax_highlight_response=1
