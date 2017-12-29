@@ -10,7 +10,7 @@ Plug 'junegunn/fzf.vim'
 " Plug some original repos on github
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
-Plug 'dahu/SearchParty'
+Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged/SearchParty/searchparty_user_maps.vim
 Plug 'Yggdroot/vim-mark'
 Plug 'dominikduda/vim_current_word'
 Plug 'wesQ3/vim-windowswap'
