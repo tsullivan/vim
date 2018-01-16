@@ -77,6 +77,10 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 nnoremap <C-P> :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
 
+" yaml
+autocmd FileType yaml let b:did_indent = 1
+autocmd FileType yaml setlocal indentexpr=
+
 " json
 let g:vim_json_syntax_conceal=0
 " js/jsx
