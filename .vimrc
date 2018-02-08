@@ -72,6 +72,9 @@ let &t_EI="\<Esc>]50;CursorShape=0\x7"
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+" custom
+nnoremap <Leader>p :.!pbpaste<CR>
+
 " fzf
 " let g:fzf_prefer_tmux=1
 nnoremap <C-P> :FZF<CR>
@@ -116,8 +119,13 @@ highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_fixers = {
-  \'javascript': ['eslint'],
-  \}
+    \ 'css': ['prettier'],
+    \ 'javascript': ['prettier'],
+    \ 'typescript': ['prettier']
+    \ }
+let g:ale_javascript_prettier_options = '--single-quote'
+let g:ale_javascript_prettier_use_local_config = 1
+nnoremap <Leader>a :ALEFix<CR>
 
 " VRC
 let g:vrc_trigger='<Leader>j'
