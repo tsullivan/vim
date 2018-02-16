@@ -73,12 +73,13 @@ let &t_EI="\<Esc>]50;CursorShape=0\x7"
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " custom
-nnoremap <Leader>p :.!pbpaste<CR>
+nmap <Leader>p :.!pbpaste<CR>
+" nmap <Leader>x :!tmux send-keys -t 0:1.0 C-p C-j <CR><CR>
 
 " fzf
 " let g:fzf_prefer_tmux=1
-nnoremap <C-P> :FZF<CR>
-nnoremap <Leader>b :Buffers<CR>
+nmap <C-P> :FZF<CR>
+nmap <Leader>b :Buffers<CR>
 
 " yaml
 autocmd FileType yaml let b:did_indent = 1
@@ -100,8 +101,8 @@ hi CurrentWordTwins term=underline cterm=underline gui=underline
 let g:airline_theme='papercolor'
 
 " NERDTree
-silent! nnoremap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
-silent! nnoremap <unique> <silent> <Leader>f :NERDTreeFind<CR>
+silent! nmap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
+silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
 " tmux-navigator
 let g:tmux_navigator_save_on_switch=2
@@ -126,7 +127,7 @@ let g:ale_fixers = {
     \ }
 let g:ale_javascript_prettier_options = '--single-quote'
 let g:ale_javascript_prettier_use_local_config = 1
-nnoremap <Leader>a :ALEFix<CR>
+nmap <Leader>a :ALEFix<CR>
 
 " VRC
 let g:vrc_trigger='<Leader>j'
