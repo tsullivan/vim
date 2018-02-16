@@ -92,6 +92,7 @@ let g:jsx_ext_required=0
 " ag
 let g:ackprg='ag --vimgrep'
 
+hi Normal guibg=NONE ctermbg=NONE
 hi CurrentWord term=bold cterm=bold
 hi CurrentWordTwins term=underline cterm=underline gui=underline
 
