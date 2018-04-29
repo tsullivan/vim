@@ -121,12 +121,8 @@ highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_fixers = {
-    \ 'css': ['prettier'],
-    \ 'javascript': ['prettier'],
-    \ 'typescript': ['prettier']
-    \ }
-let g:ale_javascript_prettier_options = '--single-quote'
-let g:ale_javascript_prettier_use_local_config = 1
+  \   'javascript': ['eslint'],
+  \}
 nmap <Leader>a :ALEFix<CR>
 
 " VRC
