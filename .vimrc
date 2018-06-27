@@ -51,13 +51,12 @@ set mouse=a ttymouse=xterm2
 set sw=2 ts=2 sts=2 expandtab
 set visualbell noerrorbells
 set smartindent
-set nowrap number
-set showcmd
-
+set showcmd number
+set wrap linebreak
 set nocursorline
-set colorcolumn=100
+set colorcolumn=
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme inkpot
 
 set splitbelow splitright
 
@@ -85,6 +84,8 @@ nmap <Leader>b :Buffers<CR>
 autocmd FileType yaml let b:did_indent = 1
 autocmd FileType yaml setlocal indentexpr=
 
+autocmd FileType javascript set keywordprg=random-bulk-data
+
 " json
 let g:vim_json_syntax_conceal=0
 " js/jsx
@@ -93,9 +94,10 @@ let g:jsx_ext_required=0
 " ag
 let g:ackprg='ag --vimgrep'
 
-hi Normal guibg=NONE ctermbg=NONE
-hi CurrentWord term=bold cterm=bold
-hi CurrentWordTwins term=underline cterm=underline gui=underline
+highlight Normal guibg=NONE ctermbg=NONE
+highlight CurrentWord term=bold cterm=bold
+highlight CurrentWordTwins term=underline cterm=underline gui=underline
+highlight Search cterm=bold ctermfg=black ctermbg=LightRed
 
 " Airline
 let g:airline_theme='papercolor'
@@ -113,11 +115,12 @@ let g:tmux_navigator_disable_when_zoomed=1
 :imap <MiddleMouse> <Nop>
 
 " ALE
-let g:ale_lint_on_text_changed = 'never'
 highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
 highlight ALEWarningSign cterm=bold ctermfg=11 ctermbg=234
 highlight ALEError cterm=NONE ctermfg=0 ctermbg=1
 highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_insert_leave = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_fixers = {
@@ -138,9 +141,9 @@ let g:vrc_curl_opts={
 let g:vrc_auto_format_response_enabled=1
 let g:vrc_auto_format_response_patterns={ 'json': "jq --sort-keys '.'" }
 
-" search highlight
-highlight Search cterm=bold ctermfg=white ctermbg=gray
 
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
+
+
