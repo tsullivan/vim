@@ -56,7 +56,7 @@ set wrap linebreak
 set nocursorline
 set colorcolumn=
 set background=dark
-colorscheme inkpot
+colorscheme Tomorrow-Night
 
 set splitbelow splitright
 
@@ -97,7 +97,7 @@ let g:ackprg='ag --vimgrep'
 highlight Normal guibg=NONE ctermbg=NONE
 highlight CurrentWord term=bold cterm=bold
 highlight CurrentWordTwins term=underline cterm=underline gui=underline
-highlight Search cterm=bold ctermfg=black ctermbg=LightRed
+highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 
 " Airline
 let g:airline_theme='papercolor'
