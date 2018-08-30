@@ -22,8 +22,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
-"Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'jason0x43/vim-js-indent'
+Plug 'Quramy/tsuquyomi'
+
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
@@ -123,10 +127,18 @@ let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
+let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \   'typescript': ['tslint'],
+  \}
 let g:ale_fixers = {
   \   'javascript': ['eslint'],
+  \   'typescript': ['tslint'],
   \}
 nmap <Leader>a :ALEFix<CR>
+
+" tsuquyomi
+let g:tsuquyomi_disable_default_mappings = 1
 
 " VRC
 let g:vrc_trigger='<Leader>j'
