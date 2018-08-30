@@ -30,10 +30,8 @@ Plug 'Quramy/tsuquyomi'
 
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
-Plug 'groenewege/vim-less'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'robbles/logstash.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 Plug 'henrik/vim-indexed-search'
@@ -66,8 +64,6 @@ set splitbelow splitright
 
 " Filetype handling
 filetype plugin indent on
-au BufNewFile,BufRead *.ejs set filetype=html
-au BufNewFile,BufRead *.es6 set filetype=javascript
 
 let &t_SI="\<Esc>]50;CursorShape=1\x7"
 let &t_EI="\<Esc>]50;CursorShape=0\x7"
@@ -115,8 +111,8 @@ let g:tmux_navigator_save_on_switch=2
 let g:tmux_navigator_disable_when_zoomed=1
 
 " ignore middle mouse button
-:map <MiddleMouse> <Nop>
-:imap <MiddleMouse> <Nop>
+map <MiddleMouse> <Nop>
+imap <MiddleMouse> <Nop>
 
 " ALE
 highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
