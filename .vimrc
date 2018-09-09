@@ -22,14 +22,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
-"Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'jason0x43/vim-js-indent'
+Plug 'Quramy/tsuquyomi'
+
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
-Plug 'groenewege/vim-less'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'robbles/logstash.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 Plug 'henrik/vim-indexed-search'
@@ -62,8 +64,6 @@ set splitbelow splitright
 
 " Filetype handling
 filetype plugin indent on
-au BufNewFile,BufRead *.ejs set filetype=html
-au BufNewFile,BufRead *.es6 set filetype=javascript
 
 let &t_SI="\<Esc>]50;CursorShape=1\x7"
 let &t_EI="\<Esc>]50;CursorShape=0\x7"
@@ -84,12 +84,11 @@ nmap <Leader>b :Buffers<CR>
 autocmd FileType yaml let b:did_indent = 1
 autocmd FileType yaml setlocal indentexpr=
 
-autocmd FileType javascript set keywordprg=random-bulk-data
-
-" json
-let g:vim_json_syntax_conceal=0
-" js/jsx
+" javascript
 let g:jsx_ext_required=0
+let g:vim_json_syntax_conceal=0
+autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.json
+autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.json
 
 " ag
 let g:ackprg='ag --vimgrep'
@@ -103,7 +102,7 @@ highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 let g:airline_theme='papercolor'
 
 " NERDTree
-silent! nmap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
+silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
 " tmux-navigator
@@ -111,8 +110,8 @@ let g:tmux_navigator_save_on_switch=2
 let g:tmux_navigator_disable_when_zoomed=1
 
 " ignore middle mouse button
-:map <MiddleMouse> <Nop>
-:imap <MiddleMouse> <Nop>
+map <MiddleMouse> <Nop>
+imap <MiddleMouse> <Nop>
 
 " ALE
 highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
@@ -123,10 +122,19 @@ let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
+let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \   'typescript': ['tslint'],
+  \}
 let g:ale_fixers = {
   \   'javascript': ['eslint'],
+  \   'typescript': ['tslint'],
   \}
 nmap <Leader>a :ALEFix<CR>
+
+" tsuquyomi
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
 
 " VRC
 let g:vrc_trigger='<Leader>j'
