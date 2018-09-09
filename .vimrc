@@ -84,12 +84,11 @@ nmap <Leader>b :Buffers<CR>
 autocmd FileType yaml let b:did_indent = 1
 autocmd FileType yaml setlocal indentexpr=
 
-autocmd FileType javascript set keywordprg=random-bulk-data
-
-" json
-let g:vim_json_syntax_conceal=0
-" js/jsx
+" javascript
 let g:jsx_ext_required=0
+let g:vim_json_syntax_conceal=0
+autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.json
+autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.json
 
 " ag
 let g:ackprg='ag --vimgrep'
@@ -103,7 +102,7 @@ highlight Search cterm=bold ctermfg=black ctermbg=LightRed
 let g:airline_theme='papercolor'
 
 " NERDTree
-silent! nmap <unique> <silent> <Leader>t :NERDTreeToggle<CR>
+silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
 " tmux-navigator
@@ -134,7 +133,8 @@ let g:ale_fixers = {
 nmap <Leader>a :ALEFix<CR>
 
 " tsuquyomi
-let g:tsuquyomi_disable_default_mappings = 1
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
 
 " VRC
 let g:vrc_trigger='<Leader>j'
