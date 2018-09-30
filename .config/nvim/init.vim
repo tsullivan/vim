@@ -1,21 +1,15 @@
-version 6.0
-set nocompatible
+call plug#begin()
 
-" vim-plug
-call plug#begin('~/.vim/plugged')
-" Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Plug some original repos on github
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged/SearchParty/searchparty_user_maps.vim
+
 Plug 'Yggdroot/vim-mark'
 Plug 'dominikduda/vim_current_word'
 Plug 'wesQ3/vim-windowswap'
-Plug 'gregsexton/MatchTag'
-Plug 'chrisbra/unicode.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
@@ -23,10 +17,16 @@ Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'jason0x43/vim-js-indent'
-Plug 'Quramy/tsuquyomi'
+function! DoRemote(arg)
+    UpdateRemotePlugins
+endfunction
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+
+" JS / Typescript
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
@@ -36,11 +36,12 @@ Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 Plug 'henrik/vim-indexed-search'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+
 " Color theme
 Plug 'ciaranm/inkpot'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'chriskempson/vim-tomorrow-theme'
-" Add plugins to &runtimepath
+
 call plug#end()
 
 filetype off
@@ -49,7 +50,7 @@ set ignorecase smartcase
 set hidden hlsearch
 set fileformat=unix
 set title ttyfast
-set mouse=a ttymouse=xterm2
+set mouse=a
 set sw=2 ts=2 sts=2 expandtab
 set visualbell noerrorbells
 set smartindent
@@ -58,15 +59,12 @@ set wrap linebreak
 set nocursorline
 set colorcolumn=
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme inkpot
 
 set splitbelow splitright
 
 " Filetype handling
 filetype plugin indent on
-
-let &t_SI="\<Esc>]50;CursorShape=1\x7"
-let &t_EI="\<Esc>]50;CursorShape=0\x7"
 
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -78,13 +76,10 @@ nmap <Leader>p :.!pbpaste<CR>
 " fzf
 " let g:fzf_prefer_tmux=1
 nmap <C-P> :FZF<CR>
-nmap <Leader>b :Buffers<CR>
-
-" yaml
-autocmd FileType yaml let b:did_indent = 1
-autocmd FileType yaml setlocal indentexpr=
 
 " javascript
+let g:deoplete#enable_at_startup = 1
+let g:nvim_typescript#default_mappings = 1
 let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.json
@@ -98,12 +93,12 @@ highlight CurrentWord term=bold cterm=bold
 highlight CurrentWordTwins term=underline cterm=underline gui=underline
 highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 
-" Airline
-let g:airline_theme='papercolor'
-
 " NERDTree
 silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
+
+" Airline
+let g:airline_theme='papercolor'
 
 " tmux-navigator
 let g:tmux_navigator_save_on_switch=2
@@ -131,10 +126,6 @@ let g:ale_fixers = {
   \   'typescript': ['tslint'],
   \}
 nmap <Leader>a :ALEFix<CR>
-
-" tsuquyomi
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-
 
 " VRC
 let g:vrc_trigger='<Leader>j'
