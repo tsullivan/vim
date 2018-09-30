@@ -58,7 +58,7 @@ set wrap linebreak
 set nocursorline
 set colorcolumn=
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme inkpot
 
 set splitbelow splitright
 
