@@ -78,8 +78,8 @@ nmap <Leader>p :.!pbpaste<CR>
 nmap <C-P> :FZF<CR>
 
 " javascript
-" let g:deoplete#enable_at_startup = 1
-let g:nvim_typescript#default_mappings = 1
+" let g:nvim_typescript#default_mappings = 1
+let g:deoplete#enable_at_startup = 1
 let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.json
