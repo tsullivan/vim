@@ -50,7 +50,7 @@ set ignorecase smartcase
 set hidden hlsearch
 set fileformat=unix
 set title ttyfast
-set mouse=a
+set mouse=
 set sw=2 ts=2 sts=2 expandtab
 set visualbell noerrorbells
 set smartindent
@@ -145,4 +145,6 @@ set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
 
-
+if exists('neovim_dot_app')
+  colorscheme industry
+endif
