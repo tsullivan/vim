@@ -25,7 +25,7 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.s
 " JS / Typescript
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'mhartington/nvim-typescript', { 'build': './install.sh' }
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 Plug 'mxw/vim-jsx'
