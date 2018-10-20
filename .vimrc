@@ -24,9 +24,8 @@ Plug 'mileszs/ack.vim'
 function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'vim-airline/vim-airline'
