@@ -25,7 +25,8 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'vim-airline/vim-airline'
