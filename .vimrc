@@ -117,14 +117,10 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-let g:ale_linters = {
-  \   'javascript': ['prettier', 'eslint'],
-  \   'typescript': ['prettier', 'tslint', 'tsserver', 'typecheck']
-  \}
-let g:ale_fixers = {
-  \   'javascript': ['prettier', 'eslint'],
-  \   'typescript': ['prettier', 'tslint'],
-  \}
+
+let g:ale_linters_ignore = { 'typescript': ['tslint'] }
+let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['tsserver'] }
+let g:ale_fixers = { 'javascript': ['eslint'], 'typescript': ['tslint'] }
 nmap <Leader>a :ALEFix<CR>
 
 " VRC
