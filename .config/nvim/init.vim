@@ -68,7 +68,7 @@ set splitbelow splitright
 filetype plugin indent on
 
 " git commit messagse
-autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype gitcommit setlocal spell textwidth=160
 
 " custom
 nmap <Leader>p :.!pbpaste<CR>
@@ -86,6 +86,10 @@ let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.json
 autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.json
 
+" docs
+autocmd FileType asciidoc setlocal textwidth=140
+autocmd FileType markdown setlocal textwidth=140
+
 " ag
 let g:ackprg='ag --vimgrep'
 
@@ -95,6 +99,7 @@ highlight CurrentWordTwins term=underline cterm=underline gui=underline
 highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 
 " NERDTree
+let g:NERDTreeWinSize=60
 silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
@@ -116,6 +121,7 @@ highlight ALEError cterm=NONE ctermfg=0 ctermbg=1
 highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_text_changed = 'always'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 

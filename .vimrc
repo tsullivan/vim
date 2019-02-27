@@ -84,6 +84,10 @@ let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.json
 autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.json
 
+" docs
+autocmd FileType asciidoc setlocal textwidth=140
+autocmd FileType markdown setlocal textwidth=140
+
 " ag
 let g:ackprg='ag --vimgrep'
 
@@ -93,6 +97,7 @@ highlight CurrentWordTwins term=underline cterm=underline gui=underline
 highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 
 " NERDTree
+let g:NERDTreeWinSize=60
 silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
