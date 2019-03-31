@@ -79,8 +79,8 @@ nmap <Leader>p :.!pbpaste<CR>
 nmap <C-P> :FZF<CR>
 
 " javascript
-" let g:nvim_typescript#default_mappings = 1
-let g:deoplete#enable_at_startup = 1
+" let g:nvim_typescript#default_mappings=1
+let g:deoplete#enable_at_startup=1
 let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.json
@@ -119,15 +119,21 @@ highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
 highlight ALEWarningSign cterm=bold ctermfg=11 ctermbg=234
 highlight ALEError cterm=NONE ctermfg=0 ctermbg=1
 highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-
-let g:ale_linters_ignore = { 'typescript': ['tslint'] }
-let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['tsserver'] }
-let g:ale_fixers = { 'javascript': ['eslint'], 'typescript': ['tslint'] }
+let g:ale_lint_on_text_changed='always'
+let g:ale_lint_on_insert_leave=1
+let g:ale_lint_on_text_changed='always'
+let g:ale_sign_error='✘'
+let g:ale_sign_warning='⚠'
+let g:ale_linters_ignore={ 'typescript': ['tslint'] } " because kibana
+let g:ale_linters={
+  \'javascript': ['eslint'],
+  \'typescript': ['tsserver'],
+  \}
+let g:ale_fixers={
+  \'c': ['clang-format'],
+  \'javascript': ['eslint'],
+  \'typescript': ['tslint'],
+  \}
 nmap <Leader>a :ALEFix<CR>
 
 " VRC
