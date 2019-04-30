@@ -127,7 +127,7 @@ let g:ale_sign_warning='⚠'
 let g:ale_linters_ignore={ 'typescript': ['tslint'] } " because kibana
 let g:ale_linters={
   \'javascript': ['eslint'],
-  \'typescript': ['tsserver'],
+  \'typescript': ['tsserver', 'eslint'],
   \}
 let g:ale_fixers={
   \'c': ['clang-format'],
@@ -135,6 +135,7 @@ let g:ale_fixers={
   \'typescript': ['tslint'],
   \}
 nmap <Leader>a :ALEFix<CR>
+nmap <Leader>z :ALENextWrap<CR>
 
 " VRC
 let g:vrc_trigger='<Leader>j'
