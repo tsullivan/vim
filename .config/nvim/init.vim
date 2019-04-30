@@ -70,6 +70,9 @@ filetype plugin indent on
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=160
 
+au InsertEnter * let updaterestore=&updatetime | set updatetime=8000
+au InsertLeave * let &updatetime=updaterestore
+
 " custom
 nmap <Leader>p :.!pbpaste<CR>
 " nmap <Leader>x :!tmux send-keys -t 0:1.0 C-p C-j <CR><CR>
@@ -83,8 +86,8 @@ nmap <C-P> :FZF<CR>
 let g:deoplete#enable_at_startup=1
 let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
-autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.json
-autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.json
+autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.d.ts,.json
+autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.d.ts,.json
 
 " docs
 autocmd FileType asciidoc setlocal textwidth=140
@@ -124,7 +127,6 @@ let g:ale_lint_on_insert_leave=1
 let g:ale_lint_on_text_changed='always'
 let g:ale_sign_error='✘'
 let g:ale_sign_warning='⚠'
-let g:ale_linters_ignore={ 'typescript': ['tslint'] } " because kibana
 let g:ale_linters={
   \'javascript': ['eslint'],
   \'typescript': ['tsserver', 'eslint'],
@@ -132,7 +134,7 @@ let g:ale_linters={
 let g:ale_fixers={
   \'c': ['clang-format'],
   \'javascript': ['eslint'],
-  \'typescript': ['tslint'],
+  \'typescript': ['eslint'],
   \}
 nmap <Leader>a :ALEFix<CR>
 nmap <Leader>z :ALENextWrap<CR>
@@ -150,6 +152,8 @@ let g:vrc_curl_opts={
 let g:vrc_auto_format_response_enabled=1
 let g:vrc_auto_format_response_patterns={ 'json': "jq --sort-keys '.'" }
 
+" Macros
+let @l = 'ggV}kzf' " fold the license header
 
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
