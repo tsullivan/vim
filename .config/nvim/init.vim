@@ -113,6 +113,9 @@ let g:airline_theme='papercolor'
 let g:tmux_navigator_save_on_switch=2
 let g:tmux_navigator_disable_when_zoomed=1
 
+" nvim-typescript
+let g:nvim_typescript#diagnostics_enable=0
+
 " ignore middle mouse button
 map <MiddleMouse> <Nop>
 imap <MiddleMouse> <Nop>
@@ -127,6 +130,7 @@ let g:ale_lint_on_insert_leave=1
 let g:ale_lint_on_text_changed='always'
 let g:ale_sign_error='✘'
 let g:ale_sign_warning='⚠'
+let g:ale_javascript_eslint_options = "--no-ignore"
 let g:ale_linters={
   \'javascript': ['eslint'],
   \'typescript': ['tsserver', 'eslint'],
@@ -154,6 +158,9 @@ let g:vrc_auto_format_response_patterns={ 'json': "jq --sort-keys '.'" }
 
 " Macros
 let @l = 'ggV}kzf' " fold the license header
+
+" Turn off built-in plugin
+let g:loaded_matchparen=1
 
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
