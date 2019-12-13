@@ -3,7 +3,6 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged/SearchParty/searchparty_user_maps.vim
 
@@ -36,7 +35,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 Plug 'henrik/vim-indexed-search'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Color theme
 Plug 'ciaranm/inkpot'
@@ -75,10 +73,8 @@ au InsertLeave * let &updatetime=updaterestore
 
 " custom
 nmap <Leader>p :.!pbpaste<CR>
-" nmap <Leader>x :!tmux send-keys -t 0:1.0 C-p C-j <CR><CR>
 
 " fzf
-" let g:fzf_prefer_tmux=1
 nmap <C-P> :FZF<CR>
 
 " javascript
@@ -109,10 +105,6 @@ silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 " Airline
 let g:airline_theme='papercolor'
 
-" tmux-navigator
-let g:tmux_navigator_save_on_switch=2
-let g:tmux_navigator_disable_when_zoomed=1
-
 " ignore middle mouse button
 map <MiddleMouse> <Nop>
 imap <MiddleMouse> <Nop>
@@ -138,6 +130,9 @@ let g:ale_fixers={
   \}
 nmap <Leader>a :ALEFix<CR>
 nmap <Leader>z :ALENextWrap<CR>
+
+" typescript
+let g:nvim_typescript#diagnostics_enable=0
 
 " VRC
 let g:vrc_trigger='<Leader>j'
