@@ -1,3 +1,25 @@
+filetype off
+
+set ignorecase smartcase
+set hidden hlsearch
+set fileformat=unix
+set title ttyfast
+set mouse=a
+set sw=2 ts=2 sts=2 expandtab
+set visualbell noerrorbells
+set smartindent
+set showcmd number
+set wrap linebreak
+set nocursorline
+set colorcolumn=
+set background=dark
+set splitbelow splitright
+
+" Filetype handling
+filetype plugin indent on
+
+let g:python3_host_prog = '/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/bin/python3.7'
+
 call plug#begin()
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -15,6 +37,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
+Plug 'jremmen/vim-ripgrep'
 
 function! DoRemote(arg)
     UpdateRemotePlugins
@@ -43,27 +66,7 @@ Plug 'chriskempson/vim-tomorrow-theme'
 
 call plug#end()
 
-filetype off
-
-set ignorecase smartcase
-set hidden hlsearch
-set fileformat=unix
-set title ttyfast
-set mouse=a
-set sw=2 ts=2 sts=2 expandtab
-set visualbell noerrorbells
-set smartindent
-set showcmd number
-set wrap linebreak
-set nocursorline
-set colorcolumn=
-set background=dark
 colorscheme inkpot
-
-set splitbelow splitright
-
-" Filetype handling
-filetype plugin indent on
 
 " git commit messagse
 autocmd Filetype gitcommit setlocal spell textwidth=160
@@ -77,9 +80,10 @@ nmap <Leader>p :.!pbpaste<CR>
 " fzf
 nmap <C-P> :FZF<CR>
 
-" javascript
+" Enable deoplete when InsertEnter.
+let g:deoplete#enable_at_startup=0
+autocmd InsertEnter * call deoplete#enable()
 " let g:nvim_typescript#default_mappings=1
-let g:deoplete#enable_at_startup=1
 let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.d.ts,.json
@@ -114,9 +118,8 @@ highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
 highlight ALEWarningSign cterm=bold ctermfg=11 ctermbg=234
 highlight ALEError cterm=NONE ctermfg=0 ctermbg=1
 highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
-let g:ale_lint_on_text_changed='always'
+let g:ale_lint_on_text_changed='never'
 let g:ale_lint_on_insert_leave=1
-let g:ale_lint_on_text_changed='always'
 let g:ale_sign_error='✘'
 let g:ale_sign_warning='⚠'
 let g:ale_javascript_eslint_options = "--no-ignore"
