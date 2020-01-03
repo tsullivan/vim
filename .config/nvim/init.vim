@@ -118,8 +118,7 @@ highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
 highlight ALEWarningSign cterm=bold ctermfg=11 ctermbg=234
 highlight ALEError cterm=NONE ctermfg=0 ctermbg=1
 highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
-let g:ale_lint_on_text_changed='never'
-let g:ale_lint_on_insert_leave=1
+let g:ale_fix_on_save=1
 let g:ale_sign_error='✘'
 let g:ale_sign_warning='⚠'
 let g:ale_javascript_eslint_options = "--no-ignore"
