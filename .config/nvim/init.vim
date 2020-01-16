@@ -11,14 +11,11 @@ set smartindent
 set showcmd number
 set wrap linebreak
 set nocursorline
-set colorcolumn=
 set background=dark
 set splitbelow splitright
 
 " Filetype handling
 filetype plugin indent on
-
-let g:python3_host_prog = '/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/bin/python3.7'
 
 call plug#begin()
 
@@ -59,39 +56,18 @@ Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 Plug 'henrik/vim-indexed-search'
 
-" Color theme
-Plug 'ciaranm/inkpot'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'chriskempson/vim-tomorrow-theme'
-
 call plug#end()
 
-colorscheme inkpot
-
-" git commit messagse
-autocmd Filetype gitcommit setlocal spell textwidth=160
-
-au InsertEnter * let updaterestore=&updatetime | set updatetime=8000
-au InsertLeave * let &updatetime=updaterestore
-
-" custom
-nmap <Leader>p :.!pbpaste<CR>
-
+colorscheme zellner
 " fzf
 nmap <C-P> :FZF<CR>
 
-" Enable deoplete when InsertEnter.
-let g:deoplete#enable_at_startup=0
-autocmd InsertEnter * call deoplete#enable()
 " let g:nvim_typescript#default_mappings=1
+let g:deoplete#enable_at_startup = 1
 let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.d.ts,.json
 autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.d.ts,.json
-
-" docs
-autocmd FileType asciidoc setlocal textwidth=140
-autocmd FileType markdown setlocal textwidth=140
 
 " ag
 let g:ackprg='ag --vimgrep'
@@ -150,16 +126,9 @@ let g:vrc_curl_opts={
 let g:vrc_auto_format_response_enabled=1
 let g:vrc_auto_format_response_patterns={ 'json': "jq --sort-keys '.'" }
 
-" Macros
-let @l = 'ggV}kzf' " fold the license header
-
 " Turn off built-in plugin
 let g:loaded_matchparen=1
 
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
-
-if exists('neovim_dot_app')
-  colorscheme industry
-endif
