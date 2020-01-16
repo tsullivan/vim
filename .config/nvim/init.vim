@@ -36,17 +36,18 @@ Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 Plug 'jremmen/vim-ripgrep'
 
-function! DoRemote(arg)
-    UpdateRemotePlugins
-endfunction
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-
 " JS / Typescript
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+if has('nvim')
+  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+  Plug 'mhartington/nvim-typescript', { 'build': './install.sh' }
+  " For async completion
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " For Denite features
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
-Plug 'mhartington/nvim-typescript', { 'build': './install.sh' }
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
