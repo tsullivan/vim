@@ -18,8 +18,6 @@ set splitbelow splitright
 " Filetype handling
 filetype plugin indent on
 
-let g:python3_host_prog = '/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/bin/python3.7'
-
 call plug#begin()
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
