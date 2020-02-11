@@ -1,17 +1,18 @@
 filetype off
 
+set background=dark
 set ignorecase smartcase
 set hidden hlsearch
 set fileformat=unix
 set title ttyfast
 set mouse=a
+set ttymouse=xterm2
 set sw=2 ts=2 sts=2 expandtab
 set visualbell noerrorbells
 set smartindent
 set showcmd number
 set wrap linebreak
 set nocursorline
-set background=dark
 set splitbelow splitright
 
 " Filetype handling
@@ -19,6 +20,7 @@ filetype plugin indent on
 
 call plug#begin()
 
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -46,20 +48,23 @@ if has('nvim')
   " For Denite features
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
+
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
-
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 Plug 'henrik/vim-indexed-search'
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'NLKNguyen/papercolor-theme'
+
 call plug#end()
 
-colorscheme zellner
+colorscheme papercolor
+
 " fzf
 nmap <C-P> :FZF<CR>
 
@@ -73,9 +78,9 @@ autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.d.ts,.json
 " ag
 let g:ackprg='ag --vimgrep'
 
+" highlight CurrentWord term=bold cterm=bold
+" highlight CurrentWordTwins term=underline cterm=underline gui=underline
 highlight Normal guibg=NONE ctermbg=NONE
-highlight CurrentWord term=bold cterm=bold
-highlight CurrentWordTwins term=underline cterm=underline gui=underline
 highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 
 " NERDTree
@@ -84,13 +89,13 @@ silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
 " Airline
-let g:airline_theme='papercolor'
+" let g:airline_theme='papercolor'
 
 " ALE
-highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
-highlight ALEWarningSign cterm=bold ctermfg=11 ctermbg=234
-highlight ALEError cterm=NONE ctermfg=0 ctermbg=1
-highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
+" highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
+" highlight ALEWarningSign cterm=bold ctermfg=11 ctermbg=234
+" highlight ALEError cterm=NONE ctermfg=0 ctermbg=1
+" highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
 let g:ale_lint_on_insert_leave=1
 let g:ale_fix_on_save=1
 let g:ale_sign_error='✘'
@@ -105,11 +110,16 @@ let g:ale_fixers={
   \'javascript': ['eslint'],
   \'typescript': ['eslint'],
   \}
-nmap <Leader>a :ALEFix<CR>
 nmap <Leader>z :ALENextWrap<CR>
 
-" typescript
-let g:nvim_typescript#diagnostics_enable=0
+" TMUX
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " VRC
 let g:vrc_trigger='<Leader>j'
