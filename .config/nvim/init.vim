@@ -92,10 +92,7 @@ silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 " let g:airline_theme='papercolor'
 
 " ALE
-" highlight ALEErrorSign cterm=bold ctermfg=1 ctermbg=234
-" highlight ALEWarningSign cterm=bold ctermfg=11 ctermbg=234
-" highlight ALEError cterm=NONE ctermfg=0 ctermbg=1
-" highlight ALEWarning cterm=NONE ctermfg=0 ctermbg=11
+let g:ale_completion_enabled = 1
 let g:ale_lint_on_insert_leave=1
 let g:ale_fix_on_save=1
 let g:ale_sign_error='✘'
@@ -110,7 +107,13 @@ let g:ale_fixers={
   \'javascript': ['eslint'],
   \'typescript': ['eslint'],
   \}
-nmap <Leader>z :ALENextWrap<CR>
+
+noremap <Leader>ad :ALEGoToDefinition<CR>
+nnoremap <leader>af :ALEFix<cr>
+noremap <Leader>ar :ALEFindReferences<CR>
+"Move between linting errors
+nnoremap ]r :ALENextWrap<CR>
+nnoremap [r :ALEPreviousWrap<CR>
 
 " TMUX
 let g:tmux_navigator_no_mappings = 1
