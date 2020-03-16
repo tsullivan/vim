@@ -6,7 +6,6 @@ set hidden hlsearch
 set fileformat=unix
 set title ttyfast
 set mouse=a
-set ttymouse=xterm2
 set sw=2 ts=2 sts=2 expandtab
 set visualbell noerrorbells
 set smartindent
@@ -14,6 +13,10 @@ set showcmd number
 set wrap linebreak
 set nocursorline
 set splitbelow splitright
+
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 " Filetype handling
 filetype plugin indent on
@@ -78,9 +81,9 @@ autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.d.ts,.json
 " ag
 let g:ackprg='ag --vimgrep'
 
-" highlight CurrentWord term=bold cterm=bold
-" highlight CurrentWordTwins term=underline cterm=underline gui=underline
-highlight Normal guibg=NONE ctermbg=NONE
+highlight CurrentWord term=bold cterm=bold
+highlight CurrentWordTwins term=underline cterm=underline gui=underline
+highlight Normal ctermbg=NONE
 highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 
 " NERDTree
