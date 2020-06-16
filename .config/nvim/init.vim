@@ -41,17 +41,6 @@ Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 Plug 'jremmen/vim-ripgrep'
 
-" JS / Typescript
-if has('nvim')
-  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-  Plug 'mhartington/nvim-typescript', { 'build': './install.sh' }
-  " For async completion
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " For Denite features
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
-
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
@@ -71,7 +60,6 @@ colorscheme papercolor
 " fzf
 nmap <C-P> :FZF<CR>
 
-" let g:nvim_typescript#default_mappings=1
 let g:deoplete#enable_at_startup = 1
 let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
