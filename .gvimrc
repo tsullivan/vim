@@ -1,7 +1,4 @@
-set gfn=Fira\ Code:h13
-set lines=80 columns=150
-set fuoptions=maxvert,maxhorz
-
 set nowrap
+set lines=40 columns=220
 
-set columns=350
+set guifont="Fira Code 12"

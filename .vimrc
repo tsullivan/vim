@@ -23,38 +23,43 @@ filetype plugin indent on
 
 call plug#begin()
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
 Plug 'tpope/vim-sensible'
 Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged/SearchParty/searchparty_user_maps.vim
-
 Plug 'Yggdroot/vim-mark'
 Plug 'dominikduda/vim_current_word'
 Plug 'wesQ3/vim-windowswap'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-unimpaired'
-Plug 'w0rp/ale'
-Plug 'mileszs/ack.vim'
-Plug 'jremmen/vim-ripgrep'
 
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'othree/yajs.vim'
-Plug 'mxw/vim-jsx'
-Plug 'elzr/vim-json'
-Plug 'tpope/vim-eunuch'
-Plug 'diepm/vim-rest-console'
-Plug 'henrik/vim-indexed-search'
+if exists('g:vscode')
+  " VSCode extension
+else
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'NLKNguyen/papercolor-theme'
+
+  Plug 'tpope/vim-fugitive'
+  Plug 'scrooloose/nerdtree'
+  Plug 'w0rp/ale'
+  Plug 'jremmen/vim-ripgrep'
+
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'othree/yajs.vim'
+  Plug 'mxw/vim-jsx'
+  Plug 'elzr/vim-json'
+  Plug 'tpope/vim-eunuch'
+  Plug 'diepm/vim-rest-console'
+  Plug 'henrik/vim-indexed-search'
+
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'NLKNguyen/papercolor-theme'
+endif
+
 
 call plug#end()
 
-colorscheme papercolor
+colorscheme PaperColor
 
 " fzf
 nmap <C-P> :FZF<CR>
