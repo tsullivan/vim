@@ -1,6 +1,7 @@
-filetype off
+set nocompatible
 
-set background=light
+filetype off
+set background=dark
 set ignorecase smartcase
 set hidden hlsearch
 set fileformat=unix
@@ -23,21 +24,22 @@ filetype plugin indent on
 
 call plug#begin()
 
-Plug 'tpope/vim-sensible'
+" Always enabled plugins
 Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged/SearchParty/searchparty_user_maps.vim
 Plug 'Yggdroot/vim-mark'
-Plug 'dominikduda/vim_current_word'
-Plug 'wesQ3/vim-windowswap'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-unimpaired'
 
 if exists('g:vscode')
   " VSCode extension
 else
+  " VSCode extension
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
 
-
+  Plug 'wesQ3/vim-windowswap'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'dominikduda/vim_current_word'
+  Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-fugitive'
   Plug 'scrooloose/nerdtree'
   Plug 'w0rp/ale'
@@ -49,7 +51,7 @@ else
   Plug 'elzr/vim-json'
   Plug 'tpope/vim-eunuch'
   Plug 'diepm/vim-rest-console'
-  Plug 'henrik/vim-indexed-search'
+  " Plug 'henrik/vim-indexed-search'
 
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -75,7 +77,6 @@ let g:ackprg='ag --vimgrep'
 
 highlight CurrentWord term=bold cterm=bold
 highlight CurrentWordTwins term=underline cterm=underline gui=underline
-highlight Normal ctermbg=NONE
 highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 
 " NERDTree
@@ -96,14 +97,17 @@ let g:ale_javascript_eslint_options = "--no-ignore"
 let g:ale_linters={
   \'javascript': ['eslint'],
   \'typescript': ['tsserver', 'eslint'],
+  \'javascriptreact': ['eslint'],
   \}
 let g:ale_fixers={
   \'c': ['clang-format'],
   \'javascript': ['eslint'],
   \'typescript': ['eslint'],
+  \'javascriptreact': ['eslint'],
   \}
 
 noremap <Leader>ad :ALEGoToDefinition<CR>
+noremap <Leader>at :ALEGoToTypeDefinition<CR>
 nnoremap <leader>af :ALEFix<cr>
 noremap <Leader>ar :ALEFindReferences<CR>
 "Move between linting errors
@@ -129,3 +133,5 @@ let g:loaded_matchparen=1
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
+
+highlight Normal ctermbg=NONE
