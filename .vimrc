@@ -8,7 +8,7 @@ set fileformat=unix
 set title ttyfast
 set mouse=a
 set sw=2 ts=2 sts=2 expandtab
-set visualbell noerrorbells
+set novisualbell noerrorbells
 set smartindent
 set showcmd number
 set wrap linebreak
@@ -35,6 +35,7 @@ else
   " VSCode extension
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'christoomey/vim-tmux-navigator'
 
   Plug 'wesQ3/vim-windowswap'
   Plug 'editorconfig/editorconfig-vim'
