@@ -56,7 +56,12 @@ else
 
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+
+  " colors
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'relastle/bluewery.vim'
+  Plug 'crusoexia/vim-monokai'
+  Plug 'morhetz/gruvbox'
 endif
 
 
