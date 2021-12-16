@@ -15,55 +15,49 @@ set wrap linebreak
 set nocursorline
 set splitbelow splitright
 
-if !has('nvim')
-  set ttymouse=xterm2
-endif
+set ttymouse=xterm2
 
 " Filetype handling
 filetype plugin indent on
 
 call plug#begin()
 
-" Always enabled plugins
 Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged/SearchParty/searchparty_user_maps.vim
 Plug 'Yggdroot/vim-mark'
 Plug 'tpope/vim-unimpaired'
 
-if exists('g:vscode')
-  " VSCode extension
-else
-  " VSCode extension
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'christoomey/vim-tmux-navigator'
+" VSCode extension
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
-  Plug 'wesQ3/vim-windowswap'
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'dominikduda/vim_current_word'
-  Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-fugitive'
-  Plug 'scrooloose/nerdtree'
-  Plug 'w0rp/ale'
-  Plug 'jremmen/vim-ripgrep'
+Plug 'wesQ3/vim-windowswap'
+Plug 'ruanyl/vim-gh-line'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'dominikduda/vim_current_word'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'w0rp/ale'
+Plug 'jremmen/vim-ripgrep'
 
-  Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'othree/yajs.vim'
-  Plug 'mxw/vim-jsx'
-  Plug 'elzr/vim-json'
-  Plug 'tpope/vim-eunuch'
-  Plug 'diepm/vim-rest-console'
-  " Plug 'henrik/vim-indexed-search'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
+Plug 'elzr/vim-json'
+Plug 'tpope/vim-eunuch'
+Plug 'diepm/vim-rest-console'
+" Plug 'henrik/vim-indexed-search'
 
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-  " colors
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'relastle/bluewery.vim'
-  Plug 'crusoexia/vim-monokai'
-  Plug 'morhetz/gruvbox'
-endif
-
+" colors
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'relastle/bluewery.vim'
+Plug 'crusoexia/vim-monokai'
+Plug 'morhetz/gruvbox'
+Plug 'chrisbra/Colorizer'
 
 call plug#end()
 
@@ -110,15 +104,32 @@ let g:ale_fixers={
   \'javascript': ['eslint'],
   \'typescript': ['eslint'],
   \'javascriptreact': ['eslint'],
+  \'typescriptreact': ['eslint'],
   \}
 
-noremap <Leader>ad :ALEGoToDefinition<CR>
-noremap <Leader>at :ALEGoToTypeDefinition<CR>
-nnoremap <leader>af :ALEFix<cr>
-noremap <Leader>ar :ALEFindReferences<CR>
-"Move between linting errors
-nnoremap ]r :ALENextWrap<CR>
-nnoremap [r :ALEPreviousWrap<CR>
+nnoremap <silent> gh     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> 1gD    <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <space>q  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <leader>ag <cmd>lua vim.lsp.buf.code_action()<CR>
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" use :Fix to autofix eslint issues in current buffer
+command! -nargs=0 Fix :CocCommand eslint.executeAutofix
+nnoremap <leader>af :Fix<cr>
 
 " VRC
 let g:vrc_trigger='<Leader>j'
@@ -132,9 +143,6 @@ let g:vrc_curl_opts={
   \}
 let g:vrc_auto_format_response_enabled=1
 let g:vrc_auto_format_response_patterns={ 'json': "jq --sort-keys '.'" }
-
-" Turn off built-in plugin
-let g:loaded_matchparen=1
 
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
