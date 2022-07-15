@@ -7,6 +7,7 @@ set hidden hlsearch
 set fileformat=unix
 set title ttyfast
 set mouse=a
+set textwidth=111
 set sw=2 ts=2 sts=2 expandtab
 set novisualbell noerrorbells
 set smartindent
@@ -58,7 +59,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'relastle/bluewery.vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
-
+Plug 'chrisbra/Colorizer'
 
 call plug#end()
 
@@ -112,9 +113,11 @@ let g:ale_fixers={
   \'typescriptreact': ['eslint'],
   \}
 
+let g:doge_doc_standard_typescript = 'tsdoc'
+
 nnoremap <silent> gh     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> 1gD    <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> <space>q  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <silent> <space>q  <cmd>lua vim.diagnostic.setloclist()<CR>
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.

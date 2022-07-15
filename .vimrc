@@ -26,7 +26,6 @@ Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged
 Plug 'Yggdroot/vim-mark'
 Plug 'tpope/vim-unimpaired'
 
-" VSCode extension
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -106,30 +105,6 @@ let g:ale_fixers={
   \'javascriptreact': ['eslint'],
   \'typescriptreact': ['eslint'],
   \}
-
-nnoremap <silent> gh     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> 1gD    <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> <space>q  <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nnoremap <leader>ag <cmd>lua vim.lsp.buf.code_action()<CR>
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" use :Fix to autofix eslint issues in current buffer
-command! -nargs=0 Fix :CocCommand eslint.executeAutofix
-nnoremap <leader>af :Fix<cr>
 
 " VRC
 let g:vrc_trigger='<Leader>j'
