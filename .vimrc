@@ -7,6 +7,7 @@ set hidden hlsearch
 set fileformat=unix
 set title ttyfast
 set mouse=a
+set textwidth=111
 set sw=2 ts=2 sts=2 expandtab
 set novisualbell noerrorbells
 set smartindent
@@ -48,8 +49,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 " Plug 'henrik/vim-indexed-search'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'luochen1990/rainbow'
+Plug 'ojroques/nvim-hardline'
 
 " colors
 Plug 'NLKNguyen/papercolor-theme'
@@ -65,14 +66,16 @@ colorscheme PaperColor
 " fzf
 nmap <C-P> :FZF<CR>
 
+" rainbow
+let g:rainbow_active = 0 "enable via :RainbowToggle
+
 let g:deoplete#enable_at_startup = 1
 let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.d.ts,.json
 autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.d.ts,.json
 
-" ag
-let g:ackprg='ag --vimgrep'
+set wildignore+=*/.git/*,*/node_modules,*/build,*/target
 
 highlight CurrentWord term=bold cterm=bold
 highlight CurrentWordTwins term=underline cterm=underline gui=underline
@@ -82,9 +85,6 @@ highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 let g:NERDTreeWinSize=60
 silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
-
-" Airline
-" let g:airline_theme='papercolor'
 
 " ALE
 let g:ale_completion_enabled = 1
@@ -124,3 +124,6 @@ set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
 
 highlight Normal ctermbg=NONE
+
+map <ScrollWheelDown> <C-E>
+map <ScrollWheelUp> <C-Y>
