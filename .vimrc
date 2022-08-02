@@ -50,7 +50,6 @@ Plug 'diepm/vim-rest-console'
 " Plug 'henrik/vim-indexed-search'
 
 Plug 'luochen1990/rainbow'
-Plug 'ojroques/nvim-hardline'
 
 " colors
 Plug 'NLKNguyen/papercolor-theme'

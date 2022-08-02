@@ -49,12 +49,10 @@ Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
-" Plug 'henrik/vim-indexed-search'
-
-Plug 'luochen1990/rainbow'
-Plug 'ojroques/nvim-hardline'
 
 " colors
+Plug 'vim-airline/vim-airline'
+Plug 'luochen1990/rainbow'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'relastle/bluewery.vim'
 Plug 'crusoexia/vim-monokai'
@@ -65,7 +63,6 @@ call plug#end()
 
 lua << EOF
 require'lspconfig'.tsserver.setup{}
-require'hardline'.setup{}
 EOF
 
 colorscheme PaperColor
