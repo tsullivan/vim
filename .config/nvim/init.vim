@@ -22,8 +22,9 @@ filetype plugin indent on
 call plug#begin()
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'simrat39/symbols-outline.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'mfussenegger/nvim-lint'
 
 Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged/SearchParty/searchparty_user_maps.vim
 Plug 'Yggdroot/vim-mark'
@@ -40,7 +41,6 @@ Plug 'dominikduda/vim_current_word'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'w0rp/ale'
 Plug 'jremmen/vim-ripgrep'
 
 Plug 'HerringtonDarkholme/yats.vim'
@@ -64,7 +64,10 @@ Plug 'chrisbra/Colorizer'
 call plug#end()
 
 lua << EOF
-require'lspconfig'.tsserver.setup{}
+require('lspconfig').tsserver.setup({})
+require('lint').linters_by_ft = {
+  typescript = {'eslint'}
+}
 EOF
 
 colorscheme PaperColor
@@ -80,6 +83,8 @@ let g:jsx_ext_required=0
 let g:vim_json_syntax_conceal=0
 autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.d.ts,.json
 autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.d.ts,.json
+autocmd BufWritePost lua require('lint').try_lint()
+autocmd BufRead,BufWritePost * lua require('lint').try_lint()
 
 set wildignore+=*/.git/*,*/node_modules,*/build,*/target
 
@@ -92,51 +97,13 @@ let g:NERDTreeWinSize=60
 silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
-" ALE
-let g:ale_completion_enabled = 1
-let g:ale_lint_on_insert_leave=1
-let g:ale_fix_on_save=1
-let g:ale_sign_error='✘'
-let g:ale_sign_warning='⚠'
-let g:ale_javascript_eslint_options = "--no-ignore"
-let g:ale_linters={
-  \'javascript': ['eslint'],
-  \'typescript': ['tsserver', 'eslint'],
-  \'javascriptreact': ['eslint'],
-  \}
-let g:ale_fixers={
-  \'c': ['clang-format'],
-  \'javascript': ['eslint'],
-  \'typescript': ['eslint'],
-  \'javascriptreact': ['eslint'],
-  \'typescriptreact': ['eslint'],
-  \}
-
-let g:doge_doc_standard_typescript = 'tsdoc'
-
 nnoremap <silent> gh     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gr      <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> 1gD    <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> <space>q  <cmd>lua vim.diagnostic.setloclist()<CR>
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
+nnoremap <silent> [g      <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]g      <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <leader>ag <cmd>lua vim.lsp.buf.code_action()<CR>
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" use :Fix to autofix eslint issues in current buffer
-command! -nargs=0 Fix :CocCommand eslint.executeAutofix
-nnoremap <leader>af :Fix<cr>
+nnoremap <silent> <space>q  <cmd>lua vim.diagnostic.setloclist()<CR>
 
 " VRC
 let g:vrc_trigger='<Leader>j'
