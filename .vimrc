@@ -52,6 +52,8 @@ Plug 'diepm/vim-rest-console'
 Plug 'luochen1990/rainbow'
 
 " colors
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'relastle/bluewery.vim'
 Plug 'crusoexia/vim-monokai'

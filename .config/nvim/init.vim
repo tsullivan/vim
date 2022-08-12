@@ -51,7 +51,9 @@ Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 
 " colors
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'luochen1990/rainbow'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'relastle/bluewery.vim'
