@@ -67,8 +67,9 @@ call plug#end()
 
 lua << EOF
 require("lspconfig").tsserver.setup({})
-require("symbols-outline").setup()
-require("nvim-tree").setup()
+require("symbols-outline").setup({})
+require('lualine').setup({})
+require("nvim-tree").setup({})
 require("lint").linters_by_ft = {
   typescript = {"eslint"},
 }
