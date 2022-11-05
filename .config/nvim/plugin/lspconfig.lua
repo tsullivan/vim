@@ -31,9 +31,15 @@ local on_attach = function(client, bufnr)
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gI', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', 'gh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '1gd', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '[g', '<Cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']g', '<Cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<Cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>ag', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 end
 
 protocol.CompletionItemKind = {
@@ -104,21 +110,6 @@ nvim_lsp.sumneko_lua.setup {
       },
     },
   },
-}
-
-nvim_lsp.tailwindcss.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
-nvim_lsp.cssls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
-nvim_lsp.astro.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
