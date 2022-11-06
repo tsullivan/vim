@@ -10,26 +10,22 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
   use 'hrsh7th/nvim-cmp' -- Completion
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
 
-  use 'nvim-lualine/lualine.nvim'
   use 'norcalli/nvim-colorizer.lua'
-
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'nvim-telescope/telescope-file-browser.nvim'
-  use { 'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-    requires = { { 'nvim-lua/plenary.nvim' } } }
-
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
   use 'christoomey/vim-tmux-navigator'
-  use 'akinsho/nvim-bufferline.lua'
+  use { 'akinsho/bufferline.nvim', tag = "v3.*" }
+  use 'nvim-lualine/lualine.nvim'
 
   use 'ruanyl/vim-gh-line'
   use 'editorconfig/editorconfig-vim'
