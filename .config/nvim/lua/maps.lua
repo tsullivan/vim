@@ -1,7 +1,11 @@
 local keymap = vim.keymap
+local telescope_builtin = require('telescope.builtin')
+local telescope_ext = require('telescope').extensions
 
-local builtin = require('telescope.builtin')
-keymap.set('n', '<leader>ff', builtin.find_files, {})
-keymap.set('n', '<leader>fg', builtin.live_grep, {})
-keymap.set('n', '<leader>fb', builtin.buffers, {})
-keymap.set('n', '<leader>fh', builtin.help_tags, {})
+local opts = { noremap = true }
+
+keymap.set('n', '<leader>ff', telescope_builtin.find_files, opts)
+keymap.set('n', '<leader>fg', telescope_builtin.live_grep, opts)
+keymap.set('n', '<leader>fb', telescope_builtin.buffers, opts)
+keymap.set('n', '<leader>fh', telescope_builtin.help_tags, opts)
+keymap.set("n", "<space>fb", telescope_ext.file_browser.file_browser, opts)
