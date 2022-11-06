@@ -23,6 +23,7 @@ packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'nvim-telescope/telescope-file-browser.nvim'
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+  use 'simrat39/symbols-outline.nvim'
   use 'christoomey/vim-tmux-navigator'
   use { 'akinsho/bufferline.nvim', tag = "v3.*" }
   use 'nvim-lualine/lualine.nvim'
