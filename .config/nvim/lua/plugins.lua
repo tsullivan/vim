@@ -22,17 +22,16 @@ packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'nvim-telescope/telescope-file-browser.nvim'
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+  use 'nvim-telescope/telescope.nvim'
   use 'simrat39/symbols-outline.nvim'
-  use 'christoomey/vim-tmux-navigator'
-  use { 'akinsho/bufferline.nvim', tag = "v3.*" }
+  use 'dahu/SearchParty'
+  use 'akinsho/bufferline.nvim'
   use 'nvim-lualine/lualine.nvim'
 
   use 'ruanyl/vim-gh-line'
   use 'editorconfig/editorconfig-vim'
   use 'dominikduda/vim_current_word'
   use 'tpope/vim-fugitive'
-  use 'jremmen/vim-ripgrep'
   use 'Yggdroot/vim-mark'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-eunuch'
@@ -40,4 +39,8 @@ packer.startup(function(use)
   use 'diepm/vim-rest-console'
 
   use 'NLKNguyen/papercolor-theme'
+  use {
+    'svrana/neosolarized.nvim',
+    requires = { 'tjdevries/colorbuddy.nvim' }
+  }
 end)
