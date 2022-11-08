@@ -31,3 +31,14 @@ require('telescope').setup {
 -- To get telescope-file-browser loaded and working with telescope,
 -- you need to call load_extension, somewhere after setup function:
 require("telescope").load_extension "file_browser"
+
+local telescope_builtin = require('telescope.builtin')
+local telescope_ext = require('telescope').extensions
+
+local opts = { noremap = true }
+
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, opts)
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, opts)
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, opts)
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, opts)
+vim.keymap.set("n", "<space>fb", telescope_ext.file_browser.file_browser, opts)
