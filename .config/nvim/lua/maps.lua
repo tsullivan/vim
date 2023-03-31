@@ -12,7 +12,8 @@ vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, telescope_opts)
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, telescope_opts)
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, telescope_opts)
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, telescope_opts)
-vim.keymap.set("n", "<space>fb", telescope_ext.file_browser.file_browser, telescope_opts)
+vim.keymap.set("n", "<leader>fq", telescope_ext.file_browser.file_browser, telescope_opts)
+vim.keymap.set("n", "<leader>fw", function () telescope_ext.file_browser.file_browser { path = "%:p:h" } end, telescope_opts)
 
 -- Export an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -30,11 +31,5 @@ function M.on_attach_lsp(bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-
-  -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  -- vim.keymap.set('n', '<space>wl', function()
-  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  -- end, bufopts)
 end
 return M

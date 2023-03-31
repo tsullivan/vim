@@ -8,10 +8,10 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
 
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
@@ -22,6 +22,7 @@ packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'nvim-telescope/telescope-file-browser.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'dahu/SearchParty'
@@ -30,10 +31,10 @@ packer.startup(function(use)
 
   use 'ruanyl/vim-gh-line'
   use 'editorconfig/editorconfig-vim'
-  use 'dominikduda/vim_current_word'
   use 'tpope/vim-fugitive'
   use 'Yggdroot/vim-mark'
   use 'tpope/vim-unimpaired'
+  use 'jremmen/vim-ripgrep'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-sensible'
   use 'diepm/vim-rest-console'
