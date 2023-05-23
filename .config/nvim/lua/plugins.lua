@@ -39,6 +39,10 @@ packer.startup(function(use)
   use 'tpope/vim-sensible'
   use 'diepm/vim-rest-console'
 
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
   use 'NLKNguyen/papercolor-theme'
   use {
     'svrana/neosolarized.nvim',

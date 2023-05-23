@@ -25,3 +25,7 @@ vim.opt.linebreak = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wildignore:append { '*/.git/*,*/node_modules,*/build,*/target' }
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
