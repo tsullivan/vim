@@ -214,6 +214,11 @@ _G.packer_plugins = {
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/vim-mark",
     url = "https://github.com/Yggdroot/vim-mark"
   },
+  ["vim-oldfiles"] = {
+    loaded = true,
+    path = "/Users/tim/.local/share/nvim/site/pack/packer/start/vim-oldfiles",
+    url = "https://github.com/gpanders/vim-oldfiles"
+  },
   ["vim-rest-console"] = {
     loaded = true,
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/vim-rest-console",

@@ -43,6 +43,9 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+
+  use 'gpanders/vim-oldfiles'
+
   use 'NLKNguyen/papercolor-theme'
   use {
     'svrana/neosolarized.nvim',

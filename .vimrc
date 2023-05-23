@@ -24,32 +24,21 @@ filetype plugin indent on
 call plug#begin()
 
 Plug 'dahu/SearchParty' " NOTE: remember to comment <c-l> mapping out of plugged/SearchParty/searchparty_user_maps.vim
-Plug 'Yggdroot/vim-mark'
-Plug 'tpope/vim-unimpaired'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'wesQ3/vim-windowswap'
 Plug 'ruanyl/vim-gh-line'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'dominikduda/vim_current_word'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
-Plug 'w0rp/ale'
+Plug 'Yggdroot/vim-mark'
+Plug 'tpope/vim-unimpaired'
 Plug 'jremmen/vim-ripgrep'
-
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'othree/yajs.vim'
-Plug 'mxw/vim-jsx'
-Plug 'elzr/vim-json'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
-" Plug 'henrik/vim-indexed-search'
 
-Plug 'luochen1990/rainbow'
+Plug 'scrooloose/nerdtree'
 
 " colors
 Plug 'vim-airline/vim-airline'
@@ -59,6 +48,7 @@ Plug 'relastle/bluewery.vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
 Plug 'chrisbra/Colorizer'
+Plug 'gpanders/vim-oldfiles'
 
 call plug#end()
 
