@@ -39,20 +39,23 @@ Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 
 Plug 'scrooloose/nerdtree'
+Plug 'chrisbra/Colorizer'
+Plug 'gpanders/vim-oldfiles'
 
 " colors
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'relastle/bluewery.vim'
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'catppuccin/nvim'
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
-Plug 'chrisbra/Colorizer'
-Plug 'gpanders/vim-oldfiles'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'relastle/bluewery.vim'
 
 call plug#end()
 
-colorscheme PaperColor
+colorscheme bluewery
 
 " fzf
 nmap <C-P> :FZF<CR>
