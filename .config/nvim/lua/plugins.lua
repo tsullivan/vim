@@ -18,21 +18,22 @@ packer.startup(function(use)
   use { 'uloco/bluloco.nvim', requires = { 'rktjmp/lush.nvim' } }
   use 'NLKNguyen/papercolor-theme'
   use 'bluz71/vim-moonfly-colors'
+  use 'landersson/vim-blueberry'
   use 'catppuccin/nvim'
   use 'crusoexia/vim-monokai'
   use 'morhetz/gruvbox'
   use 'rebelot/kanagawa.nvim'
-  use 'relastle/bluewery.vim'
+  use { 'chriskempson/tomorrow-theme', rtp = 'vim' }
 
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
 
   use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/plenary.nvim' -- Common utilities
-  use 'onsails/lspkind-nvim' -- vscode-like pictograms
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp' -- Completion
+  use 'nvim-lua/plenary.nvim'           -- Common utilities
+  use 'onsails/lspkind-nvim'            -- vscode-like pictograms
+  use 'hrsh7th/cmp-buffer'              -- nvim-cmp source for buffer words
+  use 'hrsh7th/cmp-nvim-lsp'            -- nvim-cmp source for neovim's built-in LSP
+  use 'hrsh7th/nvim-cmp'                -- Completion
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
   use 'dahu/SearchParty'
@@ -45,14 +46,12 @@ packer.startup(function(use)
   use 'tpope/vim-eunuch'
   use 'tpope/vim-sensible'
   use 'diepm/vim-rest-console'
-  use 'gpanders/vim-oldfiles'
 
   use 'nvim-telescope/telescope-file-browser.nvim'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope.nvim'
   use 'akinsho/bufferline.nvim'
   use { 'nvim-lualine/lualine.nvim', requires = { 'arkav/lualine-lsp-progress' } }
-
 
   use {
     'nvim-treesitter/nvim-treesitter',

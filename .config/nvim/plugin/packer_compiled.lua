@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/aurora",
     url = "https://github.com/ray-x/aurora"
   },
-  ["bluewery.vim"] = {
-    loaded = true,
-    path = "/Users/tim/.local/share/nvim/site/pack/packer/start/bluewery.vim",
-    url = "https://github.com/relastle/bluewery.vim"
-  },
   ["bluloco.nvim"] = {
     loaded = true,
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/bluloco.nvim",
@@ -229,6 +224,16 @@ _G.packer_plugins = {
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["tomorrow-theme"] = {
+    loaded = true,
+    path = "/Users/tim/.local/share/nvim/site/pack/packer/start/tomorrow-theme/vim",
+    url = "https://github.com/chriskempson/tomorrow-theme"
+  },
+  ["vim-blueberry"] = {
+    loaded = true,
+    path = "/Users/tim/.local/share/nvim/site/pack/packer/start/vim-blueberry",
+    url = "https://github.com/landersson/vim-blueberry"
+  },
   ["vim-eunuch"] = {
     loaded = true,
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/vim-eunuch",
@@ -259,11 +264,6 @@ _G.packer_plugins = {
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
     url = "https://github.com/bluz71/vim-moonfly-colors"
   },
-  ["vim-oldfiles"] = {
-    loaded = true,
-    path = "/Users/tim/.local/share/nvim/site/pack/packer/start/vim-oldfiles",
-    url = "https://github.com/gpanders/vim-oldfiles"
-  },
   ["vim-rest-console"] = {
     loaded = true,
     path = "/Users/tim/.local/share/nvim/site/pack/packer/start/vim-rest-console",
@@ -287,6 +287,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Runtimepath customization
+time([[Runtimepath customization]], true)
+vim.o.runtimepath = vim.o.runtimepath .. ",/Users/tim/.local/share/nvim/site/pack/packer/start/tomorrow-theme/vim"
+time([[Runtimepath customization]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

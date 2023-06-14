@@ -8,10 +8,12 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, diagnostic_opts)
 local telescope_builtin = require('telescope.builtin')
 local telescope_ext = require('telescope').extensions
 local telescope_opts = { noremap = true }
+vim.keymap.set('n', '<leader>fo', telescope_builtin.oldfiles, telescope_opts)
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, telescope_opts)
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, telescope_opts)
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, telescope_opts)
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, telescope_opts)
+vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics, telescope_opts)
 vim.keymap.set("n", "<leader>fq", telescope_ext.file_browser.file_browser, telescope_opts)
 vim.keymap.set("n", "<leader>fw", function () telescope_ext.file_browser.file_browser { path = "%:p:h" } end, telescope_opts)
 
