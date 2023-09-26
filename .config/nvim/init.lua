@@ -3,4 +3,7 @@ require('highlights')
 require('maps')
 require('plugins')
 
-vim.cmd[[colorscheme bluloco]]
+-- vim.cmd('colorscheme tokyonight')
+--
+-- vim.opt.background = 'light'
+vim.cmd('colorscheme gruvbox')

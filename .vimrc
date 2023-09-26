@@ -1,7 +1,6 @@
 set nocompatible
 
 filetype off
-set background=dark
 set ignorecase smartcase
 set hidden hlsearch
 set fileformat=unix
@@ -52,10 +51,11 @@ Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'relastle/bluewery.vim'
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 
 call plug#end()
 
-colorscheme bluewery
+colorscheme Tomorrow-Night
 
 " fzf
 nmap <C-P> :FZF<CR>
@@ -79,26 +79,6 @@ highlight Search cterm=bold ctermfg=black ctermbg=LightGray
 let g:NERDTreeWinSize=60
 silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
 silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
-
-" ALE
-let g:ale_completion_enabled = 1
-let g:ale_lint_on_insert_leave=1
-let g:ale_fix_on_save=1
-let g:ale_sign_error='✘'
-let g:ale_sign_warning='⚠'
-let g:ale_javascript_eslint_options = "--no-ignore"
-let g:ale_linters={
-  \'javascript': ['eslint'],
-  \'typescript': ['tsserver', 'eslint'],
-  \'javascriptreact': ['eslint'],
-  \}
-let g:ale_fixers={
-  \'c': ['clang-format'],
-  \'javascript': ['eslint'],
-  \'typescript': ['eslint'],
-  \'javascriptreact': ['eslint'],
-  \'typescriptreact': ['eslint'],
-  \}
 
 " VRC
 let g:vrc_trigger='<Leader>j'
