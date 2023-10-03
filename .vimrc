@@ -15,8 +15,6 @@ set wrap linebreak
 set nocursorline
 set splitbelow splitright
 
-set ttymouse=xterm2
-
 " Filetype handling
 filetype plugin indent on
 
@@ -53,21 +51,64 @@ Plug 'rebelot/kanagawa.nvim'
 Plug 'relastle/bluewery.vim'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 
+Plug 'pangloss/vim-javascript'    " JavaScript suppor
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
-colorscheme Tomorrow-Night
+"""""""""""""""""""""""""""""""""""""""""""""
+" This makes the time before it updates your hover faster
+set updatetime=300
+" Highlight the symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap keys for gotos
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript setlocal formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Use K to show documentation in floating window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+" Show hover when provider exists, fallback to vim's builtin behavior.
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('definitionHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Use `:Format` to format current buffer.
+command! -nargs=0  Format  :call CocAction('format')
+" Use `:Fold` to fold current buffer.
+command! -nargs=?  Fold    :call CocAction('fold', <f-args>)
+" Use `:OR` to organize imports of the current buffer.
+command! -nargs=0  OR      :call CocAction('runCommand', 'editor.action.organizeImport')
+"""""""""""""""""""""""""""""""""""""""""""""
 
 " fzf
 nmap <C-P> :FZF<CR>
 
 " rainbow
 let g:rainbow_active = 0 "enable via :RainbowToggle
-
-let g:deoplete#enable_at_startup = 1
-let g:jsx_ext_required=0
-let g:vim_json_syntax_conceal=0
-autocmd FileType javascript setlocal suffixesadd+=.js,.ts,.d.ts,.json
-autocmd FileType typescript setlocal suffixesadd+=.js,.ts,.d.ts,.json
 
 set wildignore+=*/.git/*,*/node_modules,*/build,*/target
 
@@ -101,3 +142,5 @@ highlight Normal ctermbg=NONE
 
 map <ScrollWheelDown> <C-E>
 map <ScrollWheelUp> <C-Y>
+
+colorscheme gruvbox
