@@ -35,7 +35,6 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
 
-Plug 'scrooloose/nerdtree'
 Plug 'chrisbra/Colorizer'
 Plug 'gpanders/vim-oldfiles'
 
@@ -70,12 +69,23 @@ nmap <leader>gy <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap for autofix the problem under the cursor
+nnoremap <silent> <leader>qf <Plug>(coc-fix-current)
+
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+" Use :OR to organize the imports
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 FO :call CocAction('runCommand', 'eslint.executeAutofix')
+command! -nargs=0 CD :call CocDiagnostics()
+
+autocmd FileType typescript nmap <leader>ef :CocAction('runCommand', 'eslint.executeAutofix')<CR>
 
 augroup mygroup
   autocmd!
@@ -96,16 +106,23 @@ function! ShowDocumentation()
   endif
 endfunction
 
-" Use `:Format` to format current buffer.
-command! -nargs=0  Format  :call CocAction('format')
-" Use `:Fold` to fold current buffer.
-command! -nargs=?  Fold    :call CocAction('fold', <f-args>)
-" Use `:OR` to organize imports of the current buffer.
-command! -nargs=0  OR      :call CocAction('runCommand', 'editor.action.organizeImport')
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>cf  <Plug>(coc-fix-current)
+nmap <leader>ef :call CocAction('runCommand', 'eslint.executeAutofix')<CR>
+
+" Open the files tree with the current file highlighted
+nnoremap <leader>e :CocCommand explorer --reveal<CR>
 """""""""""""""""""""""""""""""""""""""""""""
 
 " fzf
-nmap <C-P> :FZF<CR>
+nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>fo :History<CR>
+nnoremap <leader>fb :Buffers<CR>
 
 " rainbow
 let g:rainbow_active = 0 "enable via :RainbowToggle
@@ -115,11 +132,6 @@ set wildignore+=*/.git/*,*/node_modules,*/build,*/target
 highlight CurrentWord term=bold cterm=bold
 highlight CurrentWordTwins term=underline cterm=underline gui=underline
 highlight Search cterm=bold ctermfg=black ctermbg=LightGray
-
-" NERDTree
-let g:NERDTreeWinSize=60
-silent! nmap <unique> <silent> <Leader>e :NERDTreeToggle<CR>
-silent! nmap <unique> <silent> <Leader>f :NERDTreeFind<CR>
 
 " VRC
 let g:vrc_trigger='<Leader>j'
@@ -144,3 +156,4 @@ map <ScrollWheelDown> <C-E>
 map <ScrollWheelUp> <C-Y>
 
 colorscheme gruvbox
+set background=dark
