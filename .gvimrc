@@ -1,5 +1,4 @@
 set nowrap
 set lines=40 columns=220
-set guifont="Fira Code:h12"
-set background=light
-colorscheme gruvbox
+set guifont=MesloLGS-NF-Regular:h14
+colorscheme zaibatsu

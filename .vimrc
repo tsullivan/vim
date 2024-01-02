@@ -43,12 +43,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'bluz71/vim-moonfly-colors'
-Plug 'catppuccin/nvim'
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
-Plug 'rebelot/kanagawa.nvim'
 Plug 'relastle/bluewery.vim'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'pangloss/vim-javascript'    " JavaScript suppor
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
@@ -64,13 +64,13 @@ set updatetime=300
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap keys for gotos
-nmap <leader>gd <Plug>(coc-definition)
+nmap gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
 
 " Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <leader>q :CocList diagnostics<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
@@ -82,10 +82,6 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Use :OR to organize the imports
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
-command! -nargs=0 FO :call CocAction('runCommand', 'eslint.executeAutofix')
-command! -nargs=0 CD :call CocDiagnostics()
-
-autocmd FileType typescript nmap <leader>ef :CocAction('runCommand', 'eslint.executeAutofix')<CR>
 
 augroup mygroup
   autocmd!
@@ -113,7 +109,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Apply AutoFix to problem on the current line.
 nmap <leader>cf  <Plug>(coc-fix-current)
-nmap <leader>ef :call CocAction('runCommand', 'eslint.executeAutofix')<CR>
+nmap <leader>f :call CocAction('runCommand', 'eslint.executeAutofix')<CR>
 
 " Open the files tree with the current file highlighted
 nnoremap <leader>e :CocCommand explorer --reveal<CR>
@@ -123,6 +119,12 @@ nnoremap <leader>e :CocCommand explorer --reveal<CR>
 nnoremap <leader>ff :FZF<CR>
 nnoremap <leader>fo :History<CR>
 nnoremap <leader>fb :Buffers<CR>
+
+" custom window resize
+nnoremap <C-Q><Up> <C-W>+
+nnoremap <C-Q><Down> <C-W>-
+nnoremap <C-Q><Left> <C-W><
+nnoremap <C-Q><Right> <C-W>>
 
 " rainbow
 let g:rainbow_active = 0 "enable via :RainbowToggle
@@ -150,10 +152,5 @@ set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
 
-highlight Normal ctermbg=NONE
-
 map <ScrollWheelDown> <C-E>
 map <ScrollWheelUp> <C-Y>
-
-colorscheme gruvbox
-set background=dark
