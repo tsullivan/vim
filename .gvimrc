@@ -1,5 +1,4 @@
 set nowrap
-set lines=40 columns=220
-set guifont=MesloLGS-NF-Regular:h14
-set background=light
+set columns=220
+set guifont=MesloLGS-NF-Regular:h11
 colorscheme bluewery-light
