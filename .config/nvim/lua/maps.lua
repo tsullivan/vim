@@ -1,37 +1,39 @@
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local diagnostic_opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, diagnostic_opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, diagnostic_opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, diagnostic_opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, diagnostic_opts)
+-- Use diagnostic functions for navigation
+local diagnostic_opts = { noremap = true, silent = true } -- Define common options for diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, diagnostic_opts) -- Map '[d' to go to the previous diagnostic
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, diagnostic_opts) -- Map ']d' to go to the next diagnostic
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, diagnostic_opts) -- Map '<leader>q' to populate the quickfix list with diagnostics
 
-local telescope_builtin = require('telescope.builtin')
-local telescope_ext = require('telescope').extensions
-local telescope_opts = { noremap = true }
-vim.keymap.set('n', '<leader>fo', telescope_builtin.oldfiles, telescope_opts)
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, telescope_opts)
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, telescope_opts)
-vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, telescope_opts)
-vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, telescope_opts)
-vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics, telescope_opts)
-vim.keymap.set("n", "<leader>fq", telescope_ext.file_browser.file_browser, telescope_opts)
-vim.keymap.set("n", "<leader>fw", function () telescope_ext.file_browser.file_browser { path = "%:p:h" } end, telescope_opts)
+-- File Navigation with Telescope
+local telescope_builtin = require('telescope.builtin') -- Load Telescope's built-in pickers
+local telescope_ext = require('telescope').extensions -- Load Telescope's extensions
+local telescope_opts = { noremap = true } -- Define common options for Telescope keymaps
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, telescope_opts) -- Map '<leader>ff' to find files
+vim.keymap.set('n', '<leader>fo', telescope_builtin.oldfiles, telescope_opts) -- Map '<leader>fo' to find recently opened files
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, telescope_opts) -- Map '<leader>fb' to list and switch between open buffers
+vim.keymap.set('n', '<leader>fq', telescope_ext.file_browser.file_browser, telescope_opts) -- Map '<leader>fq' to open the Telescope file browser
 
--- Export an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local M = {}
+-- Explorer
+-- Map '<leader>e' to open the Telescope file browser at the current file's directory
+vim.keymap.set('n', '<leader>e', function() telescope_ext.file_browser.file_browser { path = "%:p:h", select_buffer = true } end, { noremap = true, silent = true })
+
+-- Documentation
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true }) -- Map 'K' to show LSP hover documentation
+
+-- LSP mappings
+local M = {} -- Initialize a table to return LSP-related functions
+-- Define a function to be called when an LSP client attaches to a buffer
 function M.on_attach_lsp(bufnr)
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  local bufopts = { noremap = true, silent = true, buffer = bufnr } -- Define common options for buffer-local LSP keymaps
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts) -- Map 'gd' to go to the definition
+  vim.keymap.set('n', '<leader>gy', vim.lsp.buf.type_definition, bufopts) -- Map '<leader>gy' to go to type definition
+  vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts) -- Map '<leader>gi' to go to implementation
+  vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, bufopts) -- Map '<leader>gr' to find references
+  vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, bufopts) -- Map '<leader>gn' to rename a symbol
+  vim.keymap.set('n', '<leader>cf', vim.lsp.buf.code_action, bufopts) -- Map '<leader>cf' to show available code actions
+  -- Map '<leader>fm' to format the current buffer using LSP formatting capabilities (e.g., Prettier via none-ls)
+  vim.keymap.set('n', '<leader>fm', function()
+    vim.lsp.buf.format { async = true }
+  end, bufopts)
 end
-return M
+return M -- Return the table containing the on_attach_lsp function
