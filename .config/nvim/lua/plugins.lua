@@ -29,12 +29,12 @@ packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim" }
 
   use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/plenary.nvim'           -- Common utilities
-  use 'onsails/lspkind-nvim'            -- vscode-like pictograms
-  use 'hrsh7th/cmp-buffer'              -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-nvim-lsp'            -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp'                -- Completion
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  use 'nvim-lua/plenary.nvim'           
+  use 'onsails/lspkind-nvim'            
+  use 'hrsh7th/cmp-buffer'              
+  use 'hrsh7th/cmp-nvim-lsp'            
+  use 'hrsh7th/nvim-cmp'                
+  use 'jose-elias-alvarez/null-ls.nvim' 
 
   use 'dahu/SearchParty'
   use 'ruanyl/vim-gh-line'

@@ -1,8 +1,9 @@
 set nocompatible
 
 filetype off
-set ignorecase smartcase
+set noignorecase smartcase
 set hidden hlsearch
+set incsearch
 set fileformat=unix
 set title ttyfast
 set textwidth=111
@@ -10,7 +11,7 @@ set sw=2 ts=2 sts=2 expandtab
 set novisualbell noerrorbells
 set smartindent
 set showcmd number
-set wrap linebreak
+set nowrap linebreak
 set nocursorline
 set splitbelow splitright
 
@@ -28,11 +29,13 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
-Plug 'Yggdroot/vim-mark'
+Plug 'inkarkat/vim-ingo-library'
+Plug 'inkarkat/vim-mark'
 Plug 'tpope/vim-unimpaired'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-eunuch'
 Plug 'diepm/vim-rest-console'
+Plug 'vim-scripts/AnsiEsc.vim'
 
 
 " colors
@@ -41,21 +44,25 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
-Plug 'relastle/bluewery.vim'
-Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'tomasr/molokai'
+Plug 'romainl/Apprentice'
 
-Plug 'pangloss/vim-javascript'    " JavaScript suppor
+Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
-colorscheme desert
 set background=dark
+set termguicolors
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 
 """""""""""""""""""""""""""""""""""""""""""""
+nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
+
 " This makes the time before it updates your hover faster
 set updatetime=300
 " Highlight the symbol under cursor on CursorHold
@@ -100,14 +107,10 @@ function! ShowDocumentation()
   endif
 endfunction
 
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
 " Apply AutoFix to problem on the current line.
-nmap <leader>cf  <Plug>(coc-fix-current)
-nmap <leader>f :call CocAction('runCommand', 'eslint.executeAutofix')<CR>
+nmap <leader>cf <Plug>(coc-fix-current)
+" Apply ESLink fix to the whole file
+nmap <leader>cl :call CocAction('runCommand', 'eslint.executeAutofix')<CR>
 
 " Open the files tree with the current file highlighted
 nnoremap <leader>e :CocCommand explorer --reveal<CR>
@@ -145,6 +148,8 @@ let g:vrc_curl_opts={
   \}
 let g:vrc_auto_format_response_enabled=1
 let g:vrc_auto_format_response_patterns={ 'json': "jq --sort-keys '.'" }
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
