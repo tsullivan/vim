@@ -3,4 +3,4 @@ require('highlights')
 require('maps')
 require('plugins')
 
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme nord')

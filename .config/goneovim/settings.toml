@@ -1,0 +1,61 @@
+# General Editor Settings
+[Editor]
+# Set your preferred font and size. This is crucial for good aesthetics.
+# You'll typically want a Nerd Font for icons (like 'FiraCode Nerd Font Mono', 'JetBrainsMono Nerd Font', 'Hack Nerd Font').
+# Make sure the font is actually installed on your macOS system.
+FontFamily = "CaskaydiaCove Nerd Font Mono"
+FontSize = 14.0
+Linespace = 0 # Adjust line spacing if needed (0 for default)
+
+# GoNeovim's own features
+[Editor.Ext]
+# Smooth pixel scrolling. This is a big advantage of GUI clients.
+SmoothScroll = true
+# Unit for mouse scrolling. 'line' scrolls by line, 'pixel' scrolls by pixel.
+# 'pixel' is usually preferred for a smooth feel on macOS trackpads.
+MousescrollUnit = "pixel"
+
+# Animated cursor for visual flair
+AnimatedCursor = true
+# Cursor animations: "slide", "blink", "none"
+CursorAnimation = "slide"
+
+# Indent guides (vertical lines indicating indentation levels)
+IndentGuide = true
+IndentGuideWidth = 1
+IndentGuideColor = "#3c3e41" # Adjust to match your theme
+
+# Scrollbar visibility and style
+Scrollbar = true
+# 'overlay' makes it float, 'hidden' hides it, 'none' disables it.
+ScrollbarStyle = "overlay"
+
+# Transparency (can be used with macOS native transparency effects)
+# Enable transparency for the window background.
+Transparent = true
+# Set transparency level (0.0 to 1.0, where 1.0 is opaque).
+# You might need to adjust this and potentially macOS's "Reduce Transparency" setting.
+TransparentLevel = 0.95 # Slightly transparent background
+
+# macOS Specific Features
+[Editor.Macos]
+# Whether to hide the title bar. Can give a cleaner look.
+HideTitlebar = true
+# Whether to use the native macOS traffic light buttons (close, minimize, maximize)
+# in a hidden title bar. Set to false if you want custom UI.
+CustomTitlebar = false # Set to true if HideTitlebar is true and you want macOS traffic lights
+
+# Enable support for dropping files from Finder directly into Goneovim
+OpenFilesFromFinder = true
+
+# Clipboard integration
+# Use Goneovim's own clipboard provider. This is generally more reliable than Neovim's
+# default clipboard handling on macOS for certain scenarios.
+Clipboard = true
+
+# Window management settings
+[Window]
+# Whether to start in a maximized state.
+Maximize = false
+# Remember window size and position on exit.
+RestoreWindowGeometry = true

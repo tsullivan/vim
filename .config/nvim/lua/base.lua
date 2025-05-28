@@ -6,7 +6,6 @@ vim.opt.fileencoding = 'utf-8'
 
 vim.wo.number = true
 
-vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hidden = true
 vim.opt.fileformat = 'unix'
