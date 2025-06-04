@@ -30,7 +30,8 @@ return require('packer').startup(function(use)
   use { 'hrsh7th/cmp-buffer' }                                                     -- nvim-cmp source: words from current buffer
   use { 'hrsh7th/cmp-nvim-lsp' }                                                   -- nvim-cmp source: LSP suggestions
   use { 'nvimtools/none-ls.nvim', requires = { 'nvimtools/none-ls-extras.nvim' } } -- Integrates non-LSP tools (linters, formatters)
-  use { 'github/copilot.vim' }                                                     -- GitHub Copilot
+  use { 'Exafunction/windsurf.vim' }
+  -- use { 'github/copilot.vim' }
 
   ---
   -- Utility & Core Enhancements

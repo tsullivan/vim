@@ -3,6 +3,11 @@ local diagnostic_opts = { noremap = true, silent = true } -- Define common optio
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, diagnostic_opts) -- Map '[d' to go to the previous diagnostic
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, diagnostic_opts) -- Map ']d' to go to the next diagnostic
 
+vim.keymap.set('i', '<C-j>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+vim.keymap.set('i', '<C-l>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
+vim.keymap.set('i', '<C-h>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
+vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+
 -- Map '<leader>q' to toggle the location list with diagnostics
 vim.keymap.set('n', '<leader>q', function()
   local winid = vim.fn.getloclist(0, {winid = 0}).winid
