@@ -13,7 +13,7 @@ lualine.setup {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = {
-      { 'filename', file_status = true, path = 1 }
+      { 'filename', file_status = true, path = 1 },
     },
     lualine_x = {
       {

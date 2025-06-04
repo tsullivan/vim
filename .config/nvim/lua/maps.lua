@@ -2,7 +2,16 @@
 local diagnostic_opts = { noremap = true, silent = true } -- Define common options for diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, diagnostic_opts) -- Map '[d' to go to the previous diagnostic
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, diagnostic_opts) -- Map ']d' to go to the next diagnostic
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, diagnostic_opts) -- Map '<leader>q' to populate the quickfix list with diagnostics
+
+-- Map '<leader>q' to toggle the location list with diagnostics
+vim.keymap.set('n', '<leader>q', function()
+  local winid = vim.fn.getloclist(0, {winid = 0}).winid
+  if winid ~= 0 then
+    vim.cmd('lclose')
+  else
+    vim.diagnostic.setloclist()
+  end
+end, { noremap = true, silent = true })
 
 -- File Navigation with Telescope
 local telescope_builtin = require('telescope.builtin') -- Load Telescope's built-in pickers
@@ -11,7 +20,7 @@ local telescope_opts = { noremap = true } -- Define common options for Telescope
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, telescope_opts) -- Map '<leader>ff' to find files
 vim.keymap.set('n', '<leader>fo', telescope_builtin.oldfiles, telescope_opts) -- Map '<leader>fo' to find recently opened files
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, telescope_opts) -- Map '<leader>fb' to list and switch between open buffers
-vim.keymap.set('n', '<leader>fq', telescope_ext.file_browser.file_browser, telescope_opts) -- Map '<leader>fq' to open the Telescope file browser
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, telescope_opts) -- Map '<leader>fg' to search text in all files
 
 -- Explorer
 -- Map '<leader>e' to open the Telescope file browser at the current file's directory
