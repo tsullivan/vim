@@ -30,9 +30,11 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 nvim_lsp.ts_ls.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" },
+  cmd = { vim.fn.stdpath("data") .. "/mason/bin/typescript-language-server", "--stdio" },
   capabilities = capabilities,
   flags = lsp_flags,
+  root_dir = require('lspconfig.util').root_pattern('package.json', 'tsconfig.json', '.git'),
+  single_file_support = false,
 }
 
 -- Python LSP setup
