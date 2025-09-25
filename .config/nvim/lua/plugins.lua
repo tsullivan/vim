@@ -5,7 +5,6 @@ return require('packer').startup(function(use)
   ---
   -- Color Themes
   ---
-  use { 'norcalli/nvim-colorizer.lua' } -- Highlights CSS/web colors in code
   use { 'sainnhe/everforest' }
   use { 'shaunsingh/nord.nvim' }
   use { 'folke/tokyonight.nvim' }
