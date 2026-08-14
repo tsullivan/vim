@@ -38,3 +38,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
     vim.cmd("MarkPalette extended")
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.textwidth = 88
+  end,
+})
